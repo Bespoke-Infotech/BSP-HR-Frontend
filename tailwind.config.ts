@@ -1,20 +1,40 @@
-import type { Config } from "tailwindcss";
-
-const config: Config = {
-  content: [
-    "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
-    "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
-    "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
-  ],
+/** @type {import('tailwindcss').Config} */
+module.exports = {
+  content: ["./src/**/*.{js,ts,jsx,tsx}", "./views/**/*.{js,ts,jsx,tsx}"],
   theme: {
     extend: {
-      backgroundImage: {
-        "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
-        "gradient-conic":
-          "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
+      screens: {
+        xs: "280px",
+        sm: "375px",
+         md: "768px",
+        lg: "976px",
+        xl: "1440px",
+        ds: "1920px",
+        dm: "2480px",
+        dl: "2700px",
       },
+      colors: {
+        bespokeGreen: "#006C33",
+        bespokeDimGreen: "#004822",
+        bespokeGrey: "#C8CCD0",
+        bespokeGray: "#4D5154",
+        bespokeBlack: "#004822",
+        inDark: "#212529",
+      },
+      boxShadow: {
+        "3xl": "0px 4px 10px rgba(0, 0, 0, 0.08)",
+        "sum": "0px 2px 4px 0px rgba(0, 0, 0, 0.08)",
+        "premium": "3px -2px 8px 0px rgba(0, 0, 0, 0.08)",
+        "4xl": "0px 2.73377px 5.46753px rgba(0, 0, 0, 0.16)",
+      },
+    },
+    listStyleType: {
+      none: "none",
+      disc: "disc",
+      decimal: "decimal",
+      square: "square",
+      roman: "upper-roman",
     },
   },
   plugins: [],
 };
-export default config;
