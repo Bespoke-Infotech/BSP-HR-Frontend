@@ -13,7 +13,7 @@ interface ICustomTextAreaProps {
   minLength?: undefined | number;
   readOnly?: boolean;
   required?: boolean;
-  onChange?: ChangeHandler;
+  onChange?: any;
   showRequiredIcon?: boolean;
   hasActionButton?: boolean;
   actionButtonText?: string;
@@ -50,23 +50,23 @@ const CustomTextArea: React.FC<ICustomTextAreaProps> = React.forwardRef(
       <div className="mb-4 lg:mb-[23px]">
         {label && (
           <div className="flex items-center mb-2">
-            <label className="block text-bespokeGray text-[16px] font-[300]">
+            <label className="block text-bespokeGray text-[13px] font-[400]">
               {label}
             </label>
             {showRequiredIcon && <sup className="ml-1 text-[#EB5757]">*</sup>}
           </div>
         )}
         {extraLabel?.length ? (
-          <h1 className="text-aelGray text-[14px] lg:leading-[16px] tracking-[0.03px] font-[300] mb-2">
+          <h1 className="text-bespokeGray text-[13px] lg:leading-[16px] tracking-[0.03px] font-[300] mb-2">
             {extraLabel}
           </h1>
         ) : null}
         <textarea
-          className={`bg-white appearance-none border px-4 placeholder:text-[#DADADA] h-[200px] placeholder:text-[16px] placeholder:lg:leading-[24px] placeholder:font-[100] ${
+          className={`bg-transparent appearance-none border px-3 placeholder:text-[#DADADA] h-[64px] placeholder:text-[14px] placeholder:lg:leading-[24px] placeholder:font-[100] ${
             readOnly ? "text-Gray bg-[#F5F5F5]" : "text-bespokeGray"
           } ${
             errors ? "border-[#EB5757]" : "border-LightGray"
-          }   rounded w-full h-[96px] py-2  leading-6 text-[16px] font-[300] focus:outline-none focus:bg-white  ${
+          }   rounded-[4px] w-full h-[96px] py-2  leading-6 text-[14px] font-[400] focus:outline-none focus:bg-white  ${
             errors ? "border-[#EB5757]" : "focus:border-Blue"
           } ${style}`}
           name={name}

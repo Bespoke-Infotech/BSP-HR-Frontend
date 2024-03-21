@@ -11,13 +11,13 @@ export const ModalContainer = ({
 }): JSX.Element => {
   return (
     <div
-      className={`fixed top-0 left-0 z-10 w-full h-screen flex justify-center items-center animation  ${
+      className={`fixed top-0 left-0 z-50 w-full h-screen flex justify-center items-center animation  ${
         showModal ? "opacity-100 visible" : "hidden opacity-0 invisible"
       }`}
     >
       <div className="overflow-hidden rounded-[8px]">{children}</div>
       <div
-        className="absolute top-0 left-0 w-full h-full overflow-y-auto bg-[#00000066] z-20"
+        className="absolute top-0 left-0 w-full h-full overflow-y-auto bg-[#00000066] z-50"
         onClick={closeModal}
       />
     </div>

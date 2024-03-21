@@ -9,15 +9,16 @@ const customStyles: StylesConfig = {
     "*": {
       boxShadow: "none !important",
     },
-    fontSize: "12px",
-    height: "44px",
-    borderRadius: "10px",
+    fontSize: "14px",
+    borderRadius: "4px",
     width: "auto",
     boxShadow: "none",
     appearance: "none",
+    background: "transparent",
   }),
   input: (base: any, state: any) => ({
     ...base,
+    background: "transparent",
     fontSize: "14px",
     paddingRight:
       state.hasValue || state.selectProps.inputValue ? "12px" : "12px",
@@ -38,10 +39,10 @@ const customStyles: StylesConfig = {
     position: "absolute",
     left: (state.hasValue || state.selectProps.inputValue) && 8,
     top: state.hasValue || state.selectProps.inputValue ? -20 : "20%",
-    background: (state.hasValue || state.selectProps.inputValue) && "white",
+    background: (state.hasValue || state.selectProps.inputValue) && "transparent",
     transition: "top 0.1s, font-size 0.1s",
     fontSize: state.hasValue || state.selectProps.inputValue ? "14px" : "14px",
-    lineHeight: (state.hasValue || state.selectProps.inputValue) && "16px",
+    lineHeight: (state.hasValue || state.selectProps.inputValue) && "14px",
     paddingRight:
       state.hasValue || state.selectProps.inputValue ? "12px" : "12px",
     paddingLeft:
@@ -52,9 +53,12 @@ const customStyles: StylesConfig = {
   option: (styles, { data, isDisabled, isFocused, isSelected }) => {
     return {
       ...styles,
-      backgroundColor: isSelected ? "#006C33" : styles.backgroundColor,
-      color: isSelected ? "#fff" : "default",
+      backgroundColor: isSelected ? "#F0F0F0" : "transparent",
+      color: isSelected ? "#1E1E1E" : "default",
       cursor: isDisabled ? "not-allowed" : styles.cursor,
+      lineHeight:"14px",
+      fontSize:"14px",
+     
     };
   },
 };
@@ -95,7 +99,7 @@ const CustomSelect: FC<{
   control?: any;
   errors?: any;
   isMulti?: boolean;
-  extraLabel?: string;
+  extraLabel?: any;
 }> = ({
   options,
   isDisabled,
@@ -114,9 +118,9 @@ const CustomSelect: FC<{
   return (
     <div className={` flex flex-col justify-start  ${containerClass}`}>
       {extraLabel && (
-        <h1 className="text-[#4D5154] text-[14px] lg:leading-[16px] tracking-[0.03px] font-[600] mb-2">
+        <div className="text-[#1E1E1E] text-[13px] lg:leading-[16px] tracking-[0.03px] font-[400] mb-2">
           {extraLabel}{" "}
-        </h1>
+        </div>
       )}
 
       <Controller

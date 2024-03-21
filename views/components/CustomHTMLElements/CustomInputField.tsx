@@ -74,9 +74,9 @@ const CustomInputField: React.FC<ICustomInputFieldProps> = React.forwardRef(
     return (
       <div className="w-full">
         {extraLabel?.length ? (
-          <h1 className="text-[#4D5154] text-[14px] lg:leading-[16px] tracking-[0.03px] font-[600] mb-2">
+          <p className="text-[#1E1E1E] text-[13px] lg:leading-[16px] tracking-[0.03px] font-[400] mb-2">
             {extraLabel}
-          </h1>
+          </p>
         ) : null}
         <div className="relative">
           {children && (
@@ -93,7 +93,7 @@ const CustomInputField: React.FC<ICustomInputFieldProps> = React.forwardRef(
             </div>
           )}
           <input
-            className={`${style} block appearance-none border bg-white focus:ring-0 leading-5 text-[14px] font-[400] peer focus:outline-none ${
+            className={`${style} block appearance-none border focus:ring-0 leading-5 text-[14px] font-[400] peer focus:outline-none ${
               addPadding ? "pl-10" : ""
             } ${
               readOnly
@@ -103,8 +103,8 @@ const CustomInputField: React.FC<ICustomInputFieldProps> = React.forwardRef(
               errors
                 ? "border-[#B00020] focus:border-[#B00020]"
                 : "border-[#C8CCD0] focus:border-bespokeGreen"
-            }   rounded-lg w-full h-[44px] py-[12px] ${
-              hasIcon ? "pl-5 pr-4" : "px-6"
+            }   rounded-[4px] w-full py-[6px] ${
+              hasIcon ? "pl-5 pr-4" : "px-3"
             } ${errors && "border-[#B00020]"} ${hasActionButton && ""} ${
               children && "border-l-0"
             }`}
@@ -128,7 +128,7 @@ const CustomInputField: React.FC<ICustomInputFieldProps> = React.forwardRef(
             id={label}
           />
           <label
-            className={`absolute text-[14px] leading-4  text-[#4D5154] dark:text-[#4D5154] duration-300 transform -translate-y-4 scale-75 px-2 top-2 origin-[0] bg-white dark:bg-white peer-focus:px-2  ${
+            className={`absolute text-[14px] leading-4  text-[#4D5154] dark:text-[#4D5154] duration-300 transform -translate-y-4 scale-75 px-2 top-2 origin-[0] peer-focus:px-2  ${
               errors
                 ? "peer-focus:text-[#B00020] peer-focus:dark:text-[#B00020]"
                 : "peer-focus:text-bespokeGreen peer-focus:dark:text-bespokeGreen"
