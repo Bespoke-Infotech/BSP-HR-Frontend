@@ -1,11 +1,11 @@
 import Image from "next/image";
 import React from "react";
-import ExclamationIcon from "../../assets/images/exclamation.svg";
+// import ExclamationIcon from "../../assets/images/exclamation.svg";
 
 const ErrorHandler = ({ errors }: { errors: any }) => {
   return (
     <div className="text-[#B00020] text-[12px] font-[400] flex items-center mt-2.5 ">
-      {errors && <Image src={ExclamationIcon} alt="" />}
+      {errors && <Image src="{ExclamationIcon}" alt="" />}
       {errors && (
         <>
           {(() => {

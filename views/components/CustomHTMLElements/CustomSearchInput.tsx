@@ -1,5 +1,5 @@
 import React from "react";
-import  * as SearchIcon  from "../../assets/img/search-icon.svg";
+// import  * as SearchIcon  from "../../assets/img/search-icon.svg";
 import Image from "next/image";
 
 interface ICustomSearchInputProps {
@@ -9,17 +9,18 @@ interface ICustomSearchInputProps {
   onChange?: any;
   onClickSearchIcon: () => void;
   value?: string | number;
+  style?: string
 }
 
 const CustomSearchInput: React.FC<ICustomSearchInputProps> = React.forwardRef(
   (
-    { name, placeholder, maxLength, onChange, onClickSearchIcon, value },
+    { name, placeholder, maxLength, onChange, onClickSearchIcon, value, style },
     ref: any
   ) => {
     return (
       <div className="input-group">
         <input
-          className="bg-white appearance-none border border-LightGray rounded w-full py-2 px-4 text-bespokeGray leading-6 focus:outline-none focus:bg-white focus:border-Blue border-r-0"
+          className={`bg-white appearance-none border border-LightGray rounded w-full py-2 px-4 text-bespokeGray text-[12px] font-[300] leading-6 focus:outline-none focus:bg-white focus:border-Blue border-r-0 ${style}`}
           type="search"
           name={name}
           placeholder={placeholder}
@@ -30,7 +31,7 @@ const CustomSearchInput: React.FC<ICustomSearchInputProps> = React.forwardRef(
         />
         <div className="input-group-append cursor-pointer">
           <span className="input-group-text" onClick={onClickSearchIcon}>
-            <Image src={SearchIcon} alt="" />
+            {/* <Image src={SearchIcon} alt="" /> */}
           </span>
         </div>
       </div>

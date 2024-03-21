@@ -41,7 +41,8 @@ p {
 }
 
 .react-select__control--is-focused {
-  border-color: #006c33 !important;
+  border-color: #C8CCD0 !important;
+  padding: 0;
 }
 
 .css-1rxz5jq-MuiSelect-select-MuiInputBase-input-MuiInput-input {
@@ -64,7 +65,7 @@ p {
 }
 
 .custom-checkbox {
-  @apply appearance-none border rounded-[6px] w-6 h-6 border-gray-300 checked:bg-[#ffffff] checked:border-transparent focus:outline-none focus:border-[#006C33] focus:ring focus:ring-[#006C3350];
+  @apply appearance-none border rounded-[0px] w-4 h-4 border-gray-300 checked:bg-[#ffffff] checked:border-transparent focus:outline-none focus:border-bespokeOrange focus:ring focus:ring-[#FDE0BD];
 }
 
 .custom-checkbox + div {

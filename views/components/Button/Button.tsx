@@ -40,7 +40,7 @@ export const PrimaryButton = ({
       className={`${
         (loader || beforeIcon || afterIcon) &&
         "flex justify-center items-center"
-      } text-white border border-solid border-[#006c33] bg-[#006c33] hover:bg-[#004822] hover:border-[#004822] disabled:bg-[#C8CCD0] disabled:border-[#C8CCD0] border-[1px] py-[15px] px-6 text-[14px] font-[400] rounded-lg focus:outline-none ${className}`}
+      } text-white border border-solid border-bespokeOrange bg-bespokeOrange hover:bg-[#E28E26] hover:border-[#E28E26] disabled:bg-[#FDE0BD] disabled:border-[#FDE0BD] py-[12px] px-6 text-[14px] font-[400] rounded-[4px] focus:outline-none ${className}`}
       onClick={onClick}
       disabled={disabled ? true : false}
       {...rest}
@@ -82,7 +82,7 @@ export const OutlineButton = ({
       type={type}
       className={`${
         (beforeIcon || afterIcon) && "flex justify-center items-center"
-      } text-bespokeGreen bg-white border-bespokeGreen hover:text-[#004822] hover:border-[#004822] disabled:text-[#C8CCD0] disabled:border-[#C8CCD0] border-[1px] py-4 px-6 text-[14px] font-[500] rounded-lg focus:outline-none ${className}`}
+      } text-bespokeOrange bg-transparent border-bespokeOrange hover:text-[#E28E26] hover:border-[#E28E26] disabled:text-[#FDE0BD] disabled:border-[#FDE0BD] border-[1px] py-4 px-6 text-[14px] font-[500] rounded-[4px] focus:outline-none ${className}`}
       onClick={onClick}
       disabled={disabled ? true : false}
       {...rest}
@@ -151,7 +151,7 @@ export const PrimaryLink = ({ title, url, className, ...rest }: LinkProps) => {
   return (
     <Link href={url}>
       <div
-        className={`text-white bg-bespokeGreen hover:bg-[#004822] hover:border-[#004822] disabled:bg-[#C8CCD0] disabled:border-[#C8CCD0] border-bespokeGreen border-[1px] py-4 px-6 text-[1.05rem] font-[300] rounded-[5px] focus:outline-none ${className}`}
+        className={`text-white bg-bespokeOrange hover:bg-[#004822] hover:border-[#004822] disabled:bg-[#C8CCD0] disabled:border-[#C8CCD0] border-bespokeOrange border-[1px] py-4 px-6 text-[1.05rem] font-[300] rounded-[5px] focus:outline-none ${className}`}
         {...rest}
       >
         {title}
@@ -164,7 +164,7 @@ export const OutlineLink = ({ title, url, className, ...rest }: LinkProps) => {
   return (
     <Link href={url}>
       <div
-        className={`text-bespokeGreen text-center bg-white border-bespokeGreen hover:border-[#004822] hover:text-[#004822] disabled:border-[#C8CCD0] border-[1px] py-4 px-6 text-[1.05rem] font-[400] focus:outline-none ${className}`}
+        className={`text-bespokeOrange text-center bg-white border-bespokeOrange hover:border-[#004822] hover:text-[#004822] disabled:border-[#C8CCD0] border-[1px] py-4 px-6 text-[1.05rem] font-[400] focus:outline-none ${className}`}
         {...rest}
       >
         {title}

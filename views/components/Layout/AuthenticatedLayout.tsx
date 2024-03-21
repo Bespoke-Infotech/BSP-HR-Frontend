@@ -1,10 +1,10 @@
-import { Red_Hat_Display } from "next/font/google";
+import { Inter } from "next/font/google";
 import React from "react";
 import Header from "../Header/Header";
 import Sidebar from "../Sidebar/Sidebar";
 
-export const redHatDisplay = Red_Hat_Display({
-  weight: ["300", "400", "500", "700"],
+export const inter = Inter({
+  weight: ["300", "400", "500", "600", "700"],
   subsets: ["latin"],
   display: "swap",
   fallback: ["Helvetica", "Arial", "sans-serif"],
@@ -16,16 +16,16 @@ const AuthenticatedLayout = ({
   pageSubTitle,
 }: {
   children: any;
-  pageTitle: string;
+  pageTitle?: string;
   pageSubTitle?: string;
 }): JSX.Element => {
   return (
-    <div className={`w-full h-screen flex ${redHatDisplay.className}`}>
+    <div className={`w-full flex ${inter.className}`}>
       <Sidebar />
-      <div className="w-full md:w-[85%] h-full flex flex-col overflow-y-auto bg-background">
-        <Header pageTitle={pageTitle} pageSubTitle={pageSubTitle} />
-        {children}
-      </div>
+      {/* <div className="w-full md:w-[85%] h-full flex flex-col overflow-y-auto bg-background"> */}
+      <Header />
+      <div className="relative top-[50px] left-[150px] px-7 py-6" style={{width:"calc(100% - 150px)"}}>{children}</div>
+      {/* </div> */}
     </div>
   );
 };
