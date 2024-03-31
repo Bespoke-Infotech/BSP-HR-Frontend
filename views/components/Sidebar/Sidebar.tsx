@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext, useEffect } from "react";
 import Logo from "../../assets/images/logo.svg";
 import Image from "next/image";
 import Link from "next/link";
@@ -7,11 +7,34 @@ import Router, { useRouter } from "next/router";
 import { useAuth } from "../../context/AuthContext";
 import { LOCAL_STORAGE_KEYS } from "../../helpers/localStorageKeys";
 import { sidebar } from "../../helpers/data/Sidebar";
+import { ClickedIndexContext } from "../../helpers/context";
 
 export default function Sidebar() {
   const router = useRouter();
   const ActiveLink = (href: string) => router.pathname.startsWith(href);
   const { logout } = useAuth();
+  const { clickedIndex, setClickedIndex } = useContext(ClickedIndexContext);
+
+  // Load the data from localStorage when the component mounts
+  useEffect(() => {
+    const savedData = localStorage.getItem("clicked");
+    if (savedData) {
+      setClickedIndex(parseInt(savedData));
+    }
+  }, [setClickedIndex]);
+
+  // Save the data to localStorage whenever it changes
+  useEffect(() => {
+    localStorage.setItem("clicked", clickedIndex.toString());
+  }, [clickedIndex]);
+
+  const toggle = (index: any) => {
+    if (clickedIndex === index) {
+      setClickedIndex(1000000);
+    } else {
+      setClickedIndex(index);
+    }
+  };
 
   const handleLogout = () => {
     logout();
@@ -27,7 +50,7 @@ export default function Sidebar() {
 
   return (
     <>
-      <div className="flex flex-col max-w-[150px] w-full h-screen border border-r-[#B9B9B930] fixed left-0 top-0 z-50">
+      <div className="flex flex-col max-w-[150px] w-full h-screen border border-r-[#B9B9B930] fixed left-0 top-0 z-50 overflow-scroll">
         <div className="flex items-center px-6 py-3 border border-b-[#B9B9B930] ">
           <Image src={Logo} alt="bespoke-logo" className="" />
         </div>
@@ -38,122 +61,71 @@ export default function Sidebar() {
                 {item?.section}
               </p>
               <div className="flex flex-col gap-[12px] ">
-                {item?.menus?.map((menu, index) => (
-                  <Link
-                    href={menu.path}
-                    key={index}
-                    className={`flex gap-[4px] items-center px-2 py-[6px] ${
-                      ActiveLink(menu?.path) &&
-                      "bg-[#FFFAF5] text-bespokeOrange "
-                    } `}
-                  >
-                    <Image
-                      src={ActiveLink(menu?.path) ? menu.activeIcon : menu.icon}
-                      alt="menu-icon"
-                    />
-                    <p className="text-[13px] whitespace-nowrap ">{menu.menu}</p>
-                  </Link>
-                ))}
+                {item?.menus?.map((menu, index) =>
+                  menu?.subMenus.length > 0 ? (
+                    <div key={index}>
+                      <div
+                        className={`flex gap-[4px] items-center px-2 py-[6px] cursor-pointer ${
+                          ActiveLink(menu?.path) &&
+                          "bg-[#FFFAF5] text-bespokeOrange "
+                        } `}
+                        onClick={() => toggle(index)}
+                        key={index}
+                      >
+                        <Image
+                          src={
+                            ActiveLink(menu?.path) ? menu.activeIcon : menu.icon
+                          }
+                          alt="menu-icon"
+                        />
+                        <p className="text-[13px] whitespace-nowrap ">
+                          {menu.menu}
+                        </p>
+                      </div>
+                      {clickedIndex === index && (
+                        <div className="flex flex-col">
+                          {menu.subMenus.map((subMenu, index) => (
+                            <Link
+                              href={subMenu.path}
+                              key={index}
+                              className={`py-1 pl-[20px] pr-1 text-[12px] whitespace-nowrap ${
+                                ActiveLink(subMenu?.path) &&
+                                "text-bespokeOrange "
+                              } `}
+                            >
+                              {subMenu?.subMenu}
+                            </Link>
+                          ))}
+                        </div>
+                      )}
+                    </div>
+                  ) : (
+                    <Link
+                      href={menu.path}
+                      key={index}
+                      className={`flex gap-[4px] items-center px-2 py-[6px] ${
+                        ActiveLink(menu?.path) &&
+                        "bg-[#FFFAF5] text-bespokeOrange "
+                      } `}
+                      onClick={() => setClickedIndex(1000000)}
+                    >
+                      <Image
+                        src={
+                          ActiveLink(menu?.path) ? menu.activeIcon : menu.icon
+                        }
+                        alt="menu-icon"
+                      />
+                      <p className="text-[13px] whitespace-nowrap ">
+                        {menu.menu}
+                      </p>
+                    </Link>
+                  )
+                )}
               </div>
             </div>
           ))}
         </div>
       </div>
-
-      {/* <div className="w-[20%] py-[21px] px-8 bg-[#AACEBB] bg-opacity-10 hidden lg:block relative">
-      <Image src={Logo} alt="" width={176} height={20.12} />
-
-      <ul className="w-full flex-1 flex flex-col gap-y-2 overflow-y-auto pt-[79px]">
-        <Link href={ROUTES.LANDINGPAGE}>
-          <li
-            className={`flex items-center py-2 px-3 cursor-pointer ${
-              ActiveLink(ROUTES.LANDINGPAGE) &&
-              "bg-[#80B599] bg-opacity-20 rounded-[32px]"
-            }`}
-          >
-            <Image
-              src={
-                ActiveLink(ROUTES.LANDINGPAGE)
-                  ? GreenDashboardIcon
-                  : GrayDashboardIcon
-              }
-              alt={`Dashboard Icon`}
-              width={20}
-              height={20}
-              className={`pr-2 `}
-            />
-            <span
-              className={`text-sm  ${
-                ActiveLink(ROUTES.LANDINGPAGE) ||
-                router.pathname.includes(ROUTES.LANDINGPAGE)
-                  ? "text-bespokeGreen font-semibold"
-                  : "text-[#4D5154] font-normal hover:text-bespokeDimGreen"
-              }`}
-            >
-              Dashboard
-            </span>
-          </li>
-        </Link>
-        
-        <p className="text-[12px] leading-[16px] font-normal py-2 px-3 text-[#4D5154] pt-[44px]">
-          INSURANCE
-        </p>
-        <Link href={ROUTES.LANDINGPAGE}>
-          <li
-            className={`text-sm flex items-center py-2 px-3 cursor-pointer ${
-              ActiveLink(ROUTES.LANDINGPAGE) &&
-              "bg-[#80B599] bg-opacity-20 rounded-[32px]"
-            }`}
-          >
-            <Image
-              src={
-                ActiveLink(ROUTES.LANDINGPAGE)
-                  ? GreenPolicyIcon
-                  : GrayPolicyIcon
-              }
-              alt={`Policy Icon`}
-              width={20}
-              height={20}
-              className={`pr-2 `}
-            />
-            <span
-              className={`text-sm ${
-                ActiveLink(ROUTES.LANDINGPAGE)
-                  ? "text-bespokeGreen font-semibold"
-                  : "text-[#4D5154] font-normal hover:text-bespokeDimGreen"
-              }`}
-            >
-              Landing page
-            </span>
-          </li>
-        </Link>
-        <Link href={ROUTES.LANDINGPAGE}>
-          <li
-            className={`text-sm flex items-center py-2 px-3 cursor-pointer ${
-              ActiveLink(ROUTES.LANDINGPAGE) &&
-              "bg-[#80B599] bg-opacity-20 rounded-[32px]"
-            }`}
-          >
-            <Image
-              src={GrayClaimIcon}
-              alt={`Claim Icon`}
-              width={20}
-              height={20}
-              className={`pr-2 `}
-            />
-            <span
-              className={`text-sm ${
-                ActiveLink(ROUTES.LANDINGPAGE)
-                  ? "text-bespokeGreen font-semibold"
-                  : "text-[#4D5154] font-normal hover:text-bespokeDimGreen"
-              }`}
-            >
-              Landing page
-            </span>
-          </li>
-        </Link>
-      </ul>
-    </div> */}
     </>
   );
 }

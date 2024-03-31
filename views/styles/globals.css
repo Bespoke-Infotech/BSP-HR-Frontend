@@ -41,13 +41,34 @@ p {
 }
 
 .react-select__control--is-focused {
-  border-color: #C8CCD0 !important;
+  border-color: #c8ccd0 !important;
   padding: 0;
 }
 
 .css-1rxz5jq-MuiSelect-select-MuiInputBase-input-MuiInput-input {
   padding-right: 0 !important;
 }
+
+
+.react-select__input-container.css-1oq5udr-Input{
+  padding: 0px !important;
+}
+
+.react-select__value-container.css-pssiy9-ValueContainer{
+  padding: 0 12px !important;
+}
+
+/* .react-select__indicator.react-select__dropdown-indicator.css-1xc3v61-indicatorContainer{
+  padding: 0 8px !important;
+}
+
+.react-select__indicators.css-1hb7zxy-IndicatorsContainer{
+  height: fit-content !important;
+}
+
+.react-select__control.css-1rmhb0g-control{
+  height: 36px !important;
+} */
 
 .white_ash_bg {
   background: linear-gradient(0deg, #ffffff, #ffffff), rgba(245, 105, 96, 0.24);

@@ -6,6 +6,9 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import type { Metadata } from "next";
 import "../../views/styles/globals.css";
+import { ClickedIndexContext } from "../../views/helpers/context";
+import { useState } from "react";
+import { sidebar } from "../../views/helpers/data/Sidebar";
 
 export const metadata: Metadata = {
   title: "BOIIBOnline",
@@ -22,12 +25,15 @@ const queryClient = new QueryClient({
 });
 
 export default function App({ Component, pageProps }: AppProps) {
+  const [clickedIndex, setClickedIndex] = useState(1000000);
   return (
     // <AuthProvider>
     // <ScopedCssBaseline>
     <>
       <QueryClientProvider client={queryClient}>
-        <Component {...pageProps} />
+        <ClickedIndexContext.Provider value={{ clickedIndex, setClickedIndex }}>
+          <Component {...pageProps} />
+        </ClickedIndexContext.Provider>
       </QueryClientProvider>
       <ToastContainer limit={2} />
     </>
