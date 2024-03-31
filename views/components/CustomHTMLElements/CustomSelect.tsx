@@ -12,6 +12,7 @@ const customStyles: StylesConfig = {
     fontSize: "14px",
     borderRadius: "4px",
     width: "auto",
+    height:"40px",
     boxShadow: "none",
     appearance: "none",
     background: "transparent",

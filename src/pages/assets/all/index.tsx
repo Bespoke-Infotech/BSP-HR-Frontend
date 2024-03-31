@@ -1,22 +1,13 @@
 import React, { useState } from "react";
-import AuthenticatedLayout from "../../../views/components/Layout/AuthenticatedLayout";
-import { employees } from "../../../views/helpers/data/Employees";
 import Image from "next/image";
-import DownloadIcon from "../../../views/assets/images/download-icon.svg";
-import OpenIcon from "../../../views/assets/images/open-icon.svg";
-import DeleteIcon from "../../../views/assets/images/delete-icon.svg";
+import AuthenticatedLayout from "../../../../views/components/Layout/AuthenticatedLayout";
+import { employees } from "../../../../views/helpers/data/Employees";
 import { useRouter } from "next/router";
-import { ROUTES } from "../../../views/helpers/routes";
+import { ROUTES } from "../../../../views/helpers/routes";
 
-const Documents = () => {
+const AllAssets = () => {
   const [selectAllItem, setSelectAllItem] = useState(false);
   const [selectedItems, setSelectedItems] = useState<any>([]);
-
-  const router = useRouter();
-
-  const handleClick = () => {
-    router.push(ROUTES.ADD_DOCUMENTS);
-  };
 
   const handleCheckboxChange = (index: any) => {
     // Check if the item is already selected
@@ -38,20 +29,25 @@ const Documents = () => {
     // Toggle the selectAllItem state
     setSelectAllItem((prevSelectAll) => !prevSelectAll);
   };
+
+  const router = useRouter();
+
+  const handleClick = () => {
+    router.push(ROUTES.ADD_ASSETS);
+  };
+
   return (
     <AuthenticatedLayout>
       <div className="flex flex-col gap-8">
         <div className="flex items-center justify-between">
-          <p className="text-[18px] font-[500] text-bespokeBlack">
-            Documents <span>({employees?.length})</span>
-          </p>
+          <p className="text-[18px] font-[500] text-bespokeBlack">Assets</p>
           <div className="flex items-center gap-5">
             <div
               className="flex items-center gap-2 px-2 py-1 rounded-[4px] bg-bespokeDeepPurple cursor-pointer"
               onClick={handleClick}
             >
               <p className="text-[12px] font-[400] text-bespokeWhite">
-                Upload Document
+                Add asset
               </p>
             </div>
           </div>
@@ -83,21 +79,27 @@ const Documents = () => {
                 )}
               </label>
             </div>
-            <p className="px-3 py-2 w-[33%] font-[500] text-[12px] leading-[24px] whitespace-nowrap text-[#212529] ">
-              Document name
+            <p className="px-3 py-2 w-[35%] font-[500] text-[12px] leading-[24px] whitespace-nowrap text-[#212529] ">
+              Asset name
             </p>
-            <p className="px-3 py-2 w-[25%] font-[500] text-[12px] leading-[24px] whitespace-nowrap text-[#212529] ">
-              Date Added
+            <p className="px-3 py-2 w-[15%] font-[500] text-[12px] leading-[24px] whitespace-nowrap text-[#212529] ">
+              Category
             </p>
-            <p className="px-3 py-2 w-[30%] font-[500] text-[12px] leading-[24px] whitespace-nowrap text-[#212529] ">
-              Public
+            <p className="px-3 py-2 w-[15%] font-[500] text-[12px] leading-[24px] whitespace-nowrap text-[#212529] ">
+              Serial number
             </p>
-            <div className="w"></div>
+            <p className="px-3 py-2 w-[10%] font-[500] text-[12px] leading-[24px] whitespace-nowrap text-[#212529] ">
+              Used by
+            </p>
+            <p className="px-3 py-2 w-[10%] font-[500] text-[12px] leading-[24px] whitespace-nowrap text-[#212529] ">
+              Location
+            </p>
           </div>
           {employees?.map((detail: any, index: any) => (
-            <form
+            <div
               key={index}
               className="flex w-[100%] overflow-hidden items-center border-[0.5px] border-b-[#B9B9B950] hover:bg-[#FFFAF5] cursor-pointer "
+              onClick={() => router.push(`all/${index}`)}
             >
               <div className="px-3 py-2 w-[3%] relative ">
                 <label
@@ -122,40 +124,32 @@ const Documents = () => {
                   )}
                 </label>
               </div>
-              <div className="px-3 py-2 w-[33%] font-[400] text-[14px] leading-[24px] whitespace-nowrap text-[#212529] ">
+              <div className="px-3 py-2 w-[35%] font-[400] text-[14px] leading-[24px] whitespace-nowrap text-[#212529] ">
                 <p className="font-[400] text-[12px] leading-[16px] whitespace-nowrap text-[#212529]">
                   {detail?.name}
                 </p>
               </div>
-              <div className="px-3 py-2 w-[25%] font-[400] text-[14px] leading-[24px] whitespace-nowrap text-[#212529] ">
+              <div className="px-3 py-2 w-[15%] font-[400] text-[14px] leading-[24px] whitespace-nowrap text-[#212529] ">
                 <p className="font-[400] text-[12px] leading-[16px] whitespace-nowrap text-[#212529]">
                   {detail?.jobTitle}
                 </p>
               </div>
-              <div className="px-3 py-2 w-[30%] font-[400] text-[14px] leading-[24px] whitespace-nowrap text-[#212529] ">
-                <label className="inline-flex items-center cursor-pointer">
-                  <input type="checkbox" value="" className="sr-only peer" />
-                  <div className="relative h-[11.2px] w-4 peer-focus:outline-none bg-gray-700 rounded-full peer peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[1px] after:bg-white after:rounded-full after:h-[7px] after:w-[7px] after:transition-all peer-checked:bg-[#219653]"></div>
-                </label>
+              <div className="px-3 py-2 w-[15%] font-[400] text-[14px] leading-[24px] whitespace-nowrap text-[#212529] ">
+                <p className="font-[400] text-[12px] leading-[16px] whitespace-nowrap text-[#212529]">
+                  {detail?.department}
+                </p>
               </div>
-              <div className="px-3 py-2 w-[5%] font-[400] text-[14px] leading-[24px] whitespace-nowrap text-[#212529] flex  gap-[12px] items-center ">
-                <Image
-                  src={DownloadIcon}
-                  alt="download-icon"
-                  onClick={() => console.log("first")}
-                />
-                <Image
-                  src={OpenIcon}
-                  alt="open-icon"
-                  onClick={() => console.log("first")}
-                />
-                <Image
-                  src={DeleteIcon}
-                  alt="delete-icon"
-                  onClick={() => console.log("first")}
-                />
+              <div className="px-3 py-2 w-[10%] font-[400] text-[14px] leading-[24px] whitespace-nowrap text-[#212529] ">
+                <p className="font-[400] text-[12px] leading-[16px] whitespace-nowrap text-[#212529]">
+                  {detail?.division}
+                </p>
               </div>
-            </form>
+              <div className="px-3 py-2 w-[10%] font-[400] text-[14px] leading-[24px] whitespace-nowrap text-[#212529] ">
+                <p className="font-[400] text-[12px] leading-[16px] whitespace-nowrap text-[#212529]">
+                  {detail?.type}
+                </p>
+              </div>
+            </div>
           ))}
         </div>
       </div>
@@ -163,4 +157,4 @@ const Documents = () => {
   );
 };
 
-export default Documents;
+export default AllAssets;

@@ -3,7 +3,7 @@ import React from "react";
 import { enforceMaxLength } from "../../helpers/enforceMaxLength";
 import { ChangeHandler } from "react-hook-form";
 import ErrorHandler from "../ErrorHandler/ErrorHandler";
-import { Controller } from 'react-hook-form';
+import { Controller } from "react-hook-form";
 
 interface ICustomInputFieldProps {
   type: string;
@@ -34,6 +34,7 @@ interface ICustomInputFieldProps {
   children?: React.ReactNode | undefined;
   errorMessage?: string;
   style?: string;
+  placeholder?: string;
 }
 
 const CustomInputField: React.FC<ICustomInputFieldProps> = React.forwardRef(
@@ -67,6 +68,7 @@ const CustomInputField: React.FC<ICustomInputFieldProps> = React.forwardRef(
       autoComplete,
       errorMessage,
       style,
+      placeholder,
       ...otherProps
     },
     ref: any
@@ -103,7 +105,7 @@ const CustomInputField: React.FC<ICustomInputFieldProps> = React.forwardRef(
               errors
                 ? "border-[#B00020] focus:border-[#B00020]"
                 : "border-[#C8CCD0] focus:border-bespokeGreen"
-            }   rounded-[4px] w-full py-[6px] ${
+            }   rounded-[4px] w-full py-[6px] h-10 ${
               hasIcon ? "pl-5 pr-4" : "px-3"
             } ${errors && "border-[#B00020]"} ${hasActionButton && ""} ${
               children && "border-l-0"
@@ -124,7 +126,7 @@ const CustomInputField: React.FC<ICustomInputFieldProps> = React.forwardRef(
             autoComplete={autoComplete}
             ref={ref}
             {...otherProps}
-            placeholder=" "
+            placeholder={placeholder ? placeholder : " "}
             id={label}
           />
           <label
@@ -132,7 +134,9 @@ const CustomInputField: React.FC<ICustomInputFieldProps> = React.forwardRef(
               errors
                 ? "peer-focus:text-[#B00020] peer-focus:dark:text-[#B00020]"
                 : "peer-focus:text-bespokeGreen peer-focus:dark:text-bespokeGreen"
-            }  peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 left-4 ${hasIcon && "left-5"}`}
+            }  peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 left-4 ${
+              hasIcon && "left-5"
+            }`}
             htmlFor={label}
           >
             {label}
@@ -157,5 +161,3 @@ const CustomInputField: React.FC<ICustomInputFieldProps> = React.forwardRef(
 );
 
 export default CustomInputField;
-
-

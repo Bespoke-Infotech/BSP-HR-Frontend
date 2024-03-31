@@ -6,6 +6,8 @@ import GoogleIcon from "../../../views/assets/images/google-icon.svg";
 import AppleIcon from "../../../views/assets/images/apple-icon.svg";
 import FacebookIcon from "../../../views/assets/images/facebook-icon.svg";
 import MicrosoftIcon from "../../../views/assets/images/microsoft-icon.svg";
+import { useRouter } from "next/router";
+import { ROUTES } from "../../../views/helpers/routes";
 
 const Login = () => {
   const [details, setDetails] = useState<any>({});
@@ -15,13 +17,15 @@ const Login = () => {
     setDetails({ ...details, [name]: value });
   };
 
+  const router = useRouter();
+
   return (
     <div className="w-full h-screen flex justify-center bg-[#FFFAF5] pt-[78px]">
       <div className="py-6 px-[54px] bg-bespokeWhite rounded-[24px] h-fit shadow-1sm flex flex-col gap-[32px]">
         <h1 className="text-[32px] font-[600] text-[#000000]">
           Signin to Bespoke
         </h1>
-        <form className="flex flex-col w-[322px] gap-[24px] ">
+        <div className="flex flex-col w-[322px] gap-[24px] ">
           <CustomInputField
             type="text"
             label=" "
@@ -42,11 +46,11 @@ const Login = () => {
           />
           <PrimaryButton
             title="Login"
-            // onClick={() => setSetupStep(setupStep + 1)}
+            onClick={() => router.push(ROUTES.OVERVIEW)}
             className="text-[16px] w-full mt-2"
             disabled={!details.email || !details.password}
           />
-        </form>
+        </div>
         <a
           href="#"
           className="text-bespokeBlack text-[16px] font-[500] text-center w-full "
