@@ -1,7 +1,7 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import { Dispatch, SetStateAction, useEffect, useState } from "react";
-import GreenLeftArrow from "@/assets/images/arrow-left-icon.svg";
-import WhiteRightArrow from "@/assets/images/white-arrow-right-icon.svg";
+import GreenLeftArrow from "../../assets/images/arrow-left-icon.svg";
+import WhiteRightArrow from "../../assets/images/white-arrow-right-icon.svg";
 import Image from "next/image";
 
 export default function Pagination({

@@ -1,7 +1,7 @@
 import Link from "next/link";
 import Lottie from "react-lottie-player";
 import Spin from "../../assets/json/dot-loader.json";
-import LoadingIcon from "@/assets/images/loader.svg";
+import LoadingIcon from "../../assets/images/loader.svg";
 import Image from "next/image";
 
 import React from "react";

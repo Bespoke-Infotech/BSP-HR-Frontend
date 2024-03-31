@@ -3,7 +3,7 @@ import CustomInputField from "../CustomHTMLElements/CustomInputField";
 import CustomSelect from "../CustomHTMLElements/CustomSelect";
 import { useForm } from "react-hook-form";
 import { OutlineButton, PrimaryButton } from "../Button/Button";
-import { SetupStepPropsType } from "@/pages/employees/add";
+import { SetupStepPropsType } from "../../../src/pages/employees/add";
 import CustomTextArea from "../CustomHTMLElements/CustomTextArea";
 
 const ManualAdditionStepFour = ({

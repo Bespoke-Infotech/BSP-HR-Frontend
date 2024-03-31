@@ -2,7 +2,7 @@ import Image from "next/image";
 import React, { useEffect, useRef, useState } from "react";
 import { PrimaryButton } from "../Button/Button";
 import CSVIcon from "../../assets/images/csv-icon.svg";
-import { SetupStepPropsType } from "@/pages/employees/add";
+import { SetupStepPropsType } from "../../../src/pages/employees/add";
 import { toast } from "react-toastify";
 import Papa from "papaparse";
 import * as XLSX from "xlsx";

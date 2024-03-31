@@ -1,7 +1,7 @@
 import Image from "next/image";
 import React from "react";
-import ArrowIcon from "@/assets/images/green-arrow-right.svg";
-import cardIcon from "@/assets/images/empty-state-icon.svg";
+import ArrowIcon from "../../assets/images/green-arrow-right.svg";
+import cardIcon from "../../assets/images/empty-state-icon.svg";
 import { PrimaryButton } from "../Button/Button";
 
 export default function EmptyState({
