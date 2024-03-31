@@ -2,14 +2,14 @@ import Image from "next/image";
 import React from "react";
 import { OutlineButton, PrimaryButton } from "../Button/Button";
 import AddEmployee from "../../assets/images/add-employee-icon.svg";
-import { SetupStepPropsType } from "@/pages/employees/add";
+import { SetupStepPropsType } from "../../../src/pages/employees/add";
 
 const EntryModal = ({
   details,
   setupStep,
   setDetails,
   setSetupStep,
-  handleNewHire
+  handleNewHire,
 }: SetupStepPropsType) => {
   return (
     <div className="w-full py-[80px] border-[0.5px] border-[#B9B9B9] rounded-[16px] flex flex-col gap-[16px] justify-center items-center">
