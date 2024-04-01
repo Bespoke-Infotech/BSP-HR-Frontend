@@ -1,9 +1,9 @@
-name: 🚀 Deploy on dev server
+name: Deploy Next.js to cPanel
 
-on: 
+on:
   push:
-    branches:    
-      - main 
+    branches:
+      - main
 
 jobs:
   web-deploy:
@@ -22,26 +22,22 @@ jobs:
       uses: actions/setup-node@master
       with:
         node-version: ${{ matrix.node-version }}
-    
-    # - name: Copy .env.prod.example to .env
-    #   run: cp .env.prod.example .env
+  
+    - name: Install dependencies
+      run: npm install
 
-    - name: 🔨 Build Project 
-      run: |
-        npm install
-        npm run build
-    
-    - name: List output files
-      run: find ./ -print
+    - name: Build Next.js app
+      run: npm run build
 
-    - name: 📂 Sync files
-      uses: SamKirkland/FTP-Deploy-Action@4.3.3
+    - name: Deploy to cPanel
+      uses: appleboy/ssh-action@master
       with:
-        server: ${{ secrets.FTP_SERVER }}
-        username: ${{ secrets.FTP_USERNAME }}
-        password: ${{ secrets.FTP_PASSWORD }}
-        local-dir: ./
-        server-dir: /
-        protocol: ftps
-        timeout: 300000  # Set a longer timeout value in milliseconds (here, 2 minutes)
-
+        host: ${{ secrets.CP_HOST }}
+        username: ${{ secrets.CP_USERNAME }}
+        password: ${{ secrets.CP_PASSWORD }}
+        port: ${{ secrets.CP_PORT }}
+        script: |
+          cd /home/bespokecreatives/hr.bespokecreatives.tech
+          git pull origin main
+          # Copy the built files to your cPanel directory
+          cp -R /home/bespokecreatives/hr.bespokecreatives.tech/.next /home/bespokecreatives/hr.bespokecreatives.tech
