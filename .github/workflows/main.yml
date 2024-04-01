@@ -34,19 +34,22 @@ jobs:
     - name: List output files
       run: find _next/ -print
 
-    - name: 📂 Sync files
-      uses: SamKirkland/FTP-Deploy-Action@4.3.3
-      with:
-        server: ${{ secrets.FTP_SERVER }}
-        username: ${{ secrets.FTP_USERNAME }}
-        password: ${{ secrets.FTP_PASSWORD }}
-        port: ${{ secrets.FTP_PORT }}
-        local-dir: _next/
-        server-dir: /
-        protocol: ftps
-        timeout: 300000  # Set a longer timeout value in milliseconds (here, 2 minutes)
-        script: |
-          cd /home/bespokecreatives/hr.bespokecreatives.tech
-          git pull origin main
-          # Copy the built files to your cPanel directory
-          cp -R /home/bespokecreatives/hr.bespokecreatives.tech/_next /home/bespokecreatives/hr.bespokecreatives.tech
+    - name: Deploy via FTP
+      run: |
+        lftp -e "open -u ${{ secrets.FTP_USERNAME }},${{ secrets.FTP_PASSWORD }} ${{ secrets.FTP_SERVER }}; set ssl:verify-certificate no; mirror -R -e -x .git/ -x .github/ -x .next/ -x node_modules/ ./hr.bespokecreatives.tech/; bye"
+    # - name: 📂 Sync files
+    #   uses: SamKirkland/FTP-Deploy-Action@4.3.3
+    #   with:
+    #     server: ${{ secrets.FTP_SERVER }}
+    #     username: ${{ secrets.FTP_USERNAME }}
+    #     password: ${{ secrets.FTP_PASSWORD }}
+    #     port: ${{ secrets.FTP_PORT }}
+    #     local-dir: _next/
+    #     server-dir: /
+    #     protocol: ftps
+    #     timeout: 300000  # Set a longer timeout value in milliseconds (here, 2 minutes)
+    #     script: |
+    #       cd /home/bespokecreatives/hr.bespokecreatives.tech
+    #       git pull origin main
+    #       # Copy the built files to your cPanel directory
+    #       cp -R /home/bespokecreatives/hr.bespokecreatives.tech/_next /home/bespokecreatives/hr.bespokecreatives.tech
