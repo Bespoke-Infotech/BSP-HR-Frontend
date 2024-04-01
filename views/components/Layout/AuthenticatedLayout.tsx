@@ -24,7 +24,7 @@ const AuthenticatedLayout = ({
       <Sidebar />
       {/* <div className="w-full md:w-[85%] h-full flex flex-col overflow-y-auto bg-background"> */}
       <Header />
-      <div className="relative top-[50px] left-[150px] px-7 py-6" style={{width:"calc(100% - 150px)"}}>{children}</div>
+      <div className="relative top-[50px] left-[250px] px-7 py-6" style={{width:"calc(100% - 250px)"}}>{children}</div>
       {/* </div> */}
     </div>
   );

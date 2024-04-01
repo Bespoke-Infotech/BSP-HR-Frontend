@@ -50,9 +50,9 @@ export default function Sidebar() {
 
   return (
     <>
-      <div className="flex flex-col max-w-[150px] w-full h-screen border border-r-[#B9B9B930] fixed left-0 top-0 z-50 overflow-scroll">
+      <div className="flex flex-col max-w-[250px] w-full h-screen border border-r-[#B9B9B930] fixed left-0 top-0 z-50 overflow-scroll">
         <div className="flex items-center px-6 py-3 border border-b-[#B9B9B930] ">
-          <Image src={Logo} alt="bespoke-logo" className="" />
+          <Image src={Logo} alt="bespoke-logo" className="" style={{width: '200px'}} />
         </div>
         <div className="p-4 flex flex-col gap-[24px] ">
           {sidebar.map((item, index) => (

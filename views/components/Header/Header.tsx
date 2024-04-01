@@ -17,7 +17,7 @@ const Header = () => {
   return (
     <div
       className="fixed top-0 right-0 h-[48px] py-[6px] px-7 border border-b-[#B9B9B930] flex items-center justify-between z-50 bg-[#FDFDFD] "
-      style={{ width: "calc(100% - 148px)" }}
+      style={{ width: "calc(100% - 250px)" }}
     >
       <CustomSearchInput
         placeholder="Search employees..."
