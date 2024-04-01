@@ -1,13 +1,10 @@
 #!/bin/bash
 
-# Change to the directory where your application code is located
-cd /home/bespokecreatives/hr.bespokecreatives.tech
+NAME="server.js" # nodejs script's name here
+RUN=`pgrep -f $NAME`
 
-# Install dependencies using npm
-npm install
-
-# Build your Next.js application (if needed)
-# npm run build
-
-# Start your Node.js server
-npm start
+if [ "$RUN" == "" ]; then
+  nodemon server.js
+else
+  echo "Script is running"
+fi
