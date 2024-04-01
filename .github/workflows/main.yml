@@ -41,7 +41,7 @@ jobs:
         username: ${{ secrets.FTP_USERNAME }}
         password: ${{ secrets.FTP_PASSWORD }}
         local-dir: _next/
-        server-dir: /hr.bespokecreatives.tech
+        server-dir: /hr
         script: |
           cd /home/bespokecreatives/hr.bespokecreatives.tech
           git pull origin main
