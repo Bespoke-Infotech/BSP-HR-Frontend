@@ -41,7 +41,9 @@ jobs:
         username: ${{ secrets.FTP_USERNAME }}
         password: ${{ secrets.FTP_PASSWORD }}
         local-dir: _next/
-        server-dir: /hr
+        server-dir: /
+        protocol: ftps
+        timeout: 300000  # Set a longer timeout value in milliseconds (here, 2 minutes)
         script: |
           cd /home/bespokecreatives/hr.bespokecreatives.tech
           git pull origin main
