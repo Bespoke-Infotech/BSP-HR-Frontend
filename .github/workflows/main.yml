@@ -39,7 +39,7 @@ jobs:
 
     - name: Deploy via FTP
       run: |
-        lftp -d -e "open -u ${{ secrets.CP_USERNAME }},${{ secrets.CP_PASSWORD }} ftp.bespokecreatives.tech; set ssl:verify-certificate no; mirror -R -e -x '.git/' -x '.github/' -x 'node_modules/' . /hr.bespokecreatives.tech/; source /home/user/hr.bespokecreatives.tech/run.sh; bye"
+        lftp -d -e "open -u ${{ secrets.CP_USERNAME }},${{ secrets.CP_PASSWORD }} ftp.bespokecreatives.tech; set ssl:verify-certificate no; mirror -R -e -x '.git/' -x '.github/' -x 'node_modules/' . /hr.bespokecreatives.tech/; source /home/bespokecreatives/hr.bespokecreatives.tech/run.sh; bye"
 
     # lftp -d -e "open -u ${{ secrets.CP_USERNAME }},${{ secrets.CP_PASSWORD }} bespokecreatives.tech; set ssl:verify-certificate no; mirror -R -e -x .git/ -x .github/ -x _next/ -x node_modules/. . /hr.bespokecreatives.tech/; bye"
 

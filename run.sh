@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Change to the directory where your application code is located
-cd /home/user/hr.bespokecreatives.tech
+cd /home/bespokecreatives/hr.bespokecreatives.tech
 
 # Install dependencies using npm
 npm install
