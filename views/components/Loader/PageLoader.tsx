@@ -1,5 +1,7 @@
+import dynamic from 'next/dynamic';
 import Link from "next/link";
-import Lottie from "react-lottie-player";
+// import Lottie from "react-lottie-player";
+const Lottie = dynamic(() => import('react-lottie-player'), { ssr: false });
 import Spin from "../../assets/json/dot-loader.json";
 import LoadingIcon from "../../assets/images/loader.svg";
 import Image from "next/image";

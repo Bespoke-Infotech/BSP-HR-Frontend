@@ -1,7 +1,9 @@
+import dynamic from 'next/dynamic';
 import Link from "next/link";
-import Lottie from "react-lottie-player";
+// import Lottie from "react-lottie-player";
 import Spinner from "../../assets/json/spinner-white.json"
 import Image from "next/image";
+const Lottie = dynamic(() => import('react-lottie-player'), { ssr: false });
 const style = { height: "30px", width: "30px" };
 interface ButtonProps {
   title: any;
