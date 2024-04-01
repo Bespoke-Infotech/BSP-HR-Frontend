@@ -26,13 +26,13 @@ jobs:
     # - name: Copy .env.prod.example to .env
     #   run: cp .env.prod.example .env
 
-    - name: 🔨 Build Project 
-      run: |
-        npm install
-        npm run build
+    # - name: 🔨 Build Project 
+    #   run: |
+    #     npm install
+    #     npm run build
     
-    - name: List output files
-      run: find _next/ -print
+    # - name: List output files
+    #   run: find _next/ -print
       
     - name: Install lftp
       run: sudo apt-get update && sudo apt-get install -y lftp
