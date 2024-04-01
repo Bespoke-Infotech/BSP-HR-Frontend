@@ -39,7 +39,9 @@ jobs:
 
     - name: Deploy via FTP
       run: |
-        lftp -d -e "open -u ${{ secrets.CP_USERNAME }},${{ secrets.CP_PASSWORD }} bespokecreatives.tech; set ssl:verify-certificate no; mirror -R -x '.git/' -x '.github/' -x '_next/' -x 'node_modules/' _next/ /hr.bespokecreatives.tech/; bye"
+        lftp -d -e "open -u ${{ secrets.CP_USERNAME }},${{ secrets.CP_PASSWORD }} bespokecreatives.tech; set ssl:verify-certificate no; mirror -R -e -x .git/ -x .github/ -x _next/ -x node_modules/. . /hr.bespokecreatives.tech/; bye"
+
+    # lftp -d -e "open -u ${{ secrets.CP_USERNAME }},${{ secrets.CP_PASSWORD }} bespokecreatives.tech; set ssl:verify-certificate no; mirror -R -x '.git/' -x '.github/' -x '_next/' -x 'node_modules/' . . /hr.bespokecreatives.tech/; bye"
 
     # - name: 📂 Sync files
     #   uses: SamKirkland/FTP-Deploy-Action@4.3.3
