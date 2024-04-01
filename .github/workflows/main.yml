@@ -45,4 +45,4 @@ jobs:
           cd /home/bespokecreatives/hr.bespokecreatives.tech
           git pull origin main
           # Copy the built files to your cPanel directory
-          cp -R /home/bespokecreatives/hr.bespokecreatives.tech/.next /home/bespokecreatives/hr.bespokecreatives.tech
+          cp -R /home/bespokecreatives/hr.bespokecreatives.tech/_next /home/bespokecreatives/hr.bespokecreatives.tech
