@@ -57,7 +57,10 @@ export default function Sidebar() {
         <div className="p-4 flex flex-col gap-[24px] ">
           {sidebar.map((item, index) => (
             <div className="flex flex-col gap-[8px]" key={index}>
-              <p className="text-[12px] font-[500] text-[#686868] px-2 ">
+              {index>0 &&
+                <hr />
+              }
+              <p className="text-[16px] font-[500] text-[#686868] px-2 ">
                 {item?.section}
               </p>
               <div className="flex flex-col gap-[12px] ">
@@ -78,7 +81,7 @@ export default function Sidebar() {
                           }
                           alt="menu-icon"
                         />
-                        <p className="text-[13px] whitespace-nowrap ">
+                        <p className="text-[16px] whitespace-nowrap ">
                           {menu.menu}
                         </p>
                       </div>
@@ -88,7 +91,7 @@ export default function Sidebar() {
                             <Link
                               href={subMenu.path}
                               key={index}
-                              className={`py-1 pl-[20px] pr-1 text-[12px] whitespace-nowrap ${
+                              className={`py-1 pl-[28px] pr-1 text-[15px] whitespace-nowrap ${
                                 ActiveLink(subMenu?.path) &&
                                 "text-bespokeOrange "
                               } `}
@@ -115,7 +118,7 @@ export default function Sidebar() {
                         }
                         alt="menu-icon"
                       />
-                      <p className="text-[13px] whitespace-nowrap ">
+                      <p className="text-[16px] whitespace-nowrap ">
                         {menu.menu}
                       </p>
                     </Link>

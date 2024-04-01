@@ -1,0 +1,1 @@
+self.__REACT_LOADABLE_MANIFEST="{\"../../views/components/Button/Button.tsx -> react-lottie-player\":{\"id\":\"../../views/components/Button/Button.tsx -> react-lottie-player\",\"files\":[\"static/chunks/node_modules_react-lottie-player_dist_LottiePlayer_modern_js.js\"]}}"
