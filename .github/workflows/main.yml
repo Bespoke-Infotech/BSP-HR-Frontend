@@ -41,6 +41,14 @@ jobs:
       run: |
         lftp -d -e "open -u ${{ secrets.CP_USERNAME }},${{ secrets.CP_PASSWORD }} ftp.bespokecreatives.tech; set ssl:verify-certificate no; mirror -R -e -x '.git/' -x '.github/' -x 'node_modules/' . /hr.bespokecreatives.tech/; source ./run.sh; bye"
 
+    - name: Restart Node.js on cPanel
+      env:
+        CPANEL_API_TOKEN: ${{ secrets.CP_API_TOKEN }}
+      run: |
+        # Write a script to restart Node.js using cPanel API
+        # Example:
+        curl -X POST -H "Authorization: cpanel username:${{ secrets.CP_API_TOKEN }}" https://bespokecreatives.tech:2083/json-api/cpanel?cpanel_jsonapi_user=username&cpanel_jsonapi_module=Nodejs&cpanel_jsonapi_func=restart_application&appname=HrFrontend
+
     # lftp -d -e "open -u ${{ secrets.CP_USERNAME }},${{ secrets.CP_PASSWORD }} bespokecreatives.tech; set ssl:verify-certificate no; mirror -R -e -x .git/ -x .github/ -x _next/ -x node_modules/. . /hr.bespokecreatives.tech/; bye"
 
     # - name: 📂 Sync files
