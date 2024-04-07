@@ -16,12 +16,12 @@ import OverviewHeroBackground from "../../../views/assets/images/overview-hero-b
 const Overview = () => {
   return (
     <AuthenticatedLayout>
-      <div className="flex flex-col gap-11">
-        <div className=" px-6 relative py-[14px] flex justify-between rounded-[8px] overflow-hidden items-center  ">
+      <div className="flex flex-col gap-6 lg:gap-11">
+        <div className=" px-4 lg:px-6 relative py-[14px] flex flex-col lg:flex-row gap-3 justify-between rounded-[8px] overflow-hidden lg:items-center  ">
           <Image
             src={OverviewHeroBackground}
             alt="overview-hero-background"
-            className="absolute right-0 top-0 z-0 "
+            className="absolute right-0 top-0 z-0 h-full "
           />
           <div className="flex flex-col gap-1 relative z-1">
             <p className="text-[14px] font-[500] text-bespokeWhite ">
@@ -31,19 +31,17 @@ const Overview = () => {
               You have up to 50days of freemium
             </p>
           </div>
-          <PrimaryButton
-            title="Upgrade to Pro"
-            onClick={() => console.log("first")}
-            className="text-[14px] pt-1 pb-1 pr-3 pl-3 font-[400] whitespace-nowrap bg-bespokeWhite border-transparent text-black w-fit h-full hover:bg-bespokeWhite hover:border-bespokeWhite relative z-1"
-          />
+          <p className="text-[14px] text-center pt-1 pb-1 pr-3 pl-3 font-[400] whitespace-nowrap bg-bespokeWhite border-transparent w-full lg:w-fit h-full hover:bg-bespokeWhite hover:border-bespokeWhite relative z-1 text-bespokeBlack rounded-[4px]">
+            Upgrade to Pro
+          </p>
         </div>
-        <div className="grid grid-cols-10 gap-[74px]">
-          <div className="col-span-7">
+        <div className="grid grid-cols-1 lg:grid-cols-10 gap-[40px] lg:gap-[74px]">
+          <div className="lg:col-span-7">
             <div className="flex flex-col gap-8">
-              <div className="grid grid-cols-3 gap-8">
+              <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 lg:gap-8 w-full">
                 {cardDetails.map((card, index) => (
                   <div
-                    className="p-4 rounded-[8px] bg-bespokeWhite flex flex-col gap-2 border-[0.2px] border-[#B9B9B9]"
+                    className="p-4 rounded-[8px] bg-bespokeWhite flex flex-col gap-2 border-[0.2px] border-[#B9B9B9] w-full"
                     key={index}
                   >
                     <div className="flex flex-col gap-3">
@@ -68,8 +66,8 @@ const Overview = () => {
                   </div>
                 ))}
               </div>
-              <div className="bg-bespokeWhite rounded-[24px] p-8 flex flex-col gap-10 min-h-[400px]">
-                <div className="flex items-center justify-between">
+              <div className="bg-bespokeWhite rounded-[8px] lg:rounded-[24px] p-8 flex flex-col gap-10 min-h-[400px] border-[0.2px] border-[#B9B9B9] lg:border-none overflow-scroll">
+                <div className="flex items-center justify-between gap-[40px]">
                   <div className=" border-[0.2px] border-b-[#B9B9B9] border-x-transparent border-t-transparent flex gap-6 py-1 ">
                     <div className="flex items-center gap-1 cursor-pointer">
                       <div className="h-3 w-3 flex justify-center items-center rounded-[50%] bg-[#FDE0BD] ">
@@ -112,14 +110,14 @@ const Overview = () => {
                     </div>
                   </div>
                   <div className="flex items-center gap-5">
-                    <div className="flex items-center gap-2 px-2 py-1 rounded-[4px] border-[0.5px] border-[#B9B9B9] cursor-pointer">
-                      <p className="text-[12px] font-[400] text-bespokeBlack">
+                    <div className="flex items-center gap-2 px-2 py-1 rounded-[4px] border-[0.5px] border-[#B9B9B9] cursor-pointer w-full">
+                      <p className="text-[12px] font-[400] text-bespokeBlack whitespace-nowrap">
                         Period
                       </p>
                       <Image src={ArrowDown} alt="arrow-down" />
                     </div>
                     <div className="flex items-center gap-2 px-2 py-1 rounded-[4px] bg-bespokeDeepPurple cursor-pointer">
-                      <p className="text-[12px] font-[400] text-bespokeWhite">
+                      <p className="text-[12px] font-[400] text-bespokeWhite whitespace-nowrap">
                         Full report
                       </p>
                     </div>
@@ -128,9 +126,9 @@ const Overview = () => {
               </div>
             </div>
           </div>
-          <div className="col-span-3 flex flex-col gap-[35px] ">
+          <div className="lg:col-span-3 flex flex-col gap-[35px] w-full ">
             <div className="flex flex-col gap-3">
-              <p className="text-[16px] font-[500] text-bespokeBlack ">
+              <p className="text-[14px] lg:text-[16px] font-[500] text-bespokeBlack ">
                 Upcoming Days Off
               </p>
               <div className="px-3 flex flex-col border-[0.2px] border-[#B9B9B9] rounded-[8px] w-full ">
@@ -153,7 +151,7 @@ const Overview = () => {
               </div>
             </div>
             <div className="flex flex-col gap-3">
-              <p className="text-[16px] font-[500] text-bespokeBlack ">
+              <p className="text-[14px] lg:text-[16px] font-[500] text-bespokeBlack ">
                 Company news
               </p>
               <div className="px-3 flex flex-col border-[0.2px] border-[#B9B9B9] rounded-[8px] w-full ">

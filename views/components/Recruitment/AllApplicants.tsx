@@ -30,7 +30,7 @@ const AllApplicants = () => {
   return (
     <div className="flex flex-col gap-8">
       <div className="flex items-center justify-between">
-        <p className="text-[18px] font-[500] text-bespokeBlack">
+        <p className="text-[16px] lg:text-[18px] font-[500] text-bespokeBlack">
           All Applicants
         </p>
         <div className="flex items-center gap-5">
@@ -42,8 +42,8 @@ const AllApplicants = () => {
         </div>
       </div>
 
-      <div className="flex flex-col rounded-[8px_8px_0px_0px] overflow-hidden ">
-        <div className="flex w-[100%] rounded-[8px_8px_0px_0px] overflow-hidden bg-[#F0F0F0] border-[0.5px] border-[#B9B9B950]">
+      <div className="flex flex-col rounded-[8px_8px_0px_0px] overflow-scroll ">
+        <div className="flex w-[200%] lg:w-[100%] rounded-[8px_8px_0px_0px] overflow-hidden bg-[#F0F0F0] border-[0.5px] border-[#B9B9B950]">
           <div className="px-3 py-2 w-[3%] relative flex items-center justify-center ">
             <label
               htmlFor="bordered-checkbox"
@@ -84,7 +84,7 @@ const AllApplicants = () => {
         {applicants?.map((applicant: any, index: any) => (
           <form
             key={index}
-            className="flex w-[100%] overflow-hidden items-center border-[0.5px] border-b-[#B9B9B950] hover:bg-[#FFFAF5] cursor-pointer "
+            className="flex w-[200%] lg:w-[100%] overflow-hidden items-center border-[0.5px] border-b-[#B9B9B950] hover:bg-[#FFFAF5] cursor-pointer "
           >
             <div className="px-3 py-2 w-[3%] relative ">
               <label

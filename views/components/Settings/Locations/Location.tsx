@@ -22,7 +22,7 @@ const Location = () => {
 
   return (
     <>
-      <div className="flex flex-col gap-4 w-[820px]">
+      <div className="flex flex-col gap-4 w-full lg:w-[820px]">
         <div className="flex items-center justify-between w-full">
           <p className="text-[16px] font-[400] text-bespokeBlack ">Location</p>
           <div
@@ -40,10 +40,10 @@ const Location = () => {
               className="px-5 py-4 bg-bespokeWhite flex justify-between items-center rounded-[8px] border-[0.2px] border-[#F0F0F0] "
               key={index}
             >
-              <div className="flex items-center gap-6">
+              <div className="flex items-center gap-2 lg:gap-6">
                 <Image src={LocationIcon} alt="location-icon" />
                 <div className="flex flex-col gap-2">
-                  <p className="text-[16px] font-[500] text-bespokeBlack ">
+                  <p className="text-[12px] lg:text-[16px] font-[500] text-bespokeBlack ">
                     {location.location}
                   </p>
                 </div>

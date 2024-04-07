@@ -41,11 +41,11 @@ const Settings = () => {
   return (
     <>
       <AuthenticatedLayout>
-        <p className="mb-6 font-[500] text-[18px] text-bespokeBlack ">
+        <p className="mb-4 lg:mb-6 font-[500] text-[16px] lg:text-[18px] text-bespokeBlack ">
           Settings
         </p>
-        <div className="flex flex-col gap-[24px]  ">
-          <div className="w-full border-[0.2px] border-b-[#B9B9B9] border-x-transparent border-t-transparent flex gap-6 py-1 ">
+        <div className="flex flex-col gap-[24px] overflow-scroll  ">
+          <div className="w-fit lg:w-full border-[0.2px] border-b-[#B9B9B9] border-x-transparent border-t-transparent flex gap-4 lg:gap-6 py-1 ">
             <div
               className="flex items-center gap-1 cursor-pointer"
               onClick={() => handleDetailsRoute("company")}
@@ -55,7 +55,7 @@ const Settings = () => {
                   <div className="h-[6px] w-[6px] flex justify-center items-center rounded-[50%] bg-bespokeOrange " />
                 )}
               </div>
-              <p className="text-[#686868] text-[12px] font-[300] ">Company</p>
+              <p className="text-[#686868] text-[12px] font-[300] whitespace-nowrap ">Company</p>
             </div>
             <div
               className="flex items-center gap-1 cursor-pointer"
@@ -66,7 +66,7 @@ const Settings = () => {
                   <div className="h-[6px] w-[6px] flex justify-center items-center rounded-[50%] bg-bespokeOrange " />
                 )}
               </div>
-              <p className="text-[#686868] text-[12px] font-[300] ">Time off</p>
+              <p className="text-[#686868] text-[12px] font-[300] whitespace-nowrap ">Time off</p>
             </div>
             <div
               className="flex items-center gap-1 cursor-pointer"
@@ -77,7 +77,7 @@ const Settings = () => {
                   <div className="h-[6px] w-[6px] flex justify-center items-center rounded-[50%] bg-bespokeOrange " />
                 )}
               </div>
-              <p className="text-[#686868] text-[12px] font-[300] ">Holidays</p>
+              <p className="text-[#686868] text-[12px] font-[300] whitespace-nowrap ">Holidays</p>
             </div>
             <div
               className="flex items-center gap-1 cursor-pointer"
@@ -88,7 +88,7 @@ const Settings = () => {
                   <div className="h-[6px] w-[6px] flex justify-center items-center rounded-[50%] bg-bespokeOrange " />
                 )}
               </div>
-              <p className="text-[#686868] text-[12px] font-[300] ">
+              <p className="text-[#686868] text-[12px] font-[300] whitespace-nowrap ">
                 Job titles
               </p>
             </div>
@@ -101,7 +101,7 @@ const Settings = () => {
                   <div className="h-[6px] w-[6px] flex justify-center items-center rounded-[50%] bg-bespokeOrange " />
                 )}
               </div>
-              <p className="text-[#686868] text-[12px] font-[300] ">
+              <p className="text-[#686868] text-[12px] font-[300] whitespace-nowrap ">
                 Locations
               </p>
             </div>
@@ -114,7 +114,7 @@ const Settings = () => {
                   <div className="h-[6px] w-[6px] flex justify-center items-center rounded-[50%] bg-bespokeOrange " />
                 )}
               </div>
-              <p className="text-[#686868] text-[12px] font-[300] ">
+              <p className="text-[#686868] text-[12px] font-[300] whitespace-nowrap ">
                 Departments
               </p>
             </div>

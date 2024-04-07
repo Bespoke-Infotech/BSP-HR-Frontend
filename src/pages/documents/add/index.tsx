@@ -140,7 +140,7 @@ const AddDocument = () => {
           >
             <Image src={PDFIcon} alt="add-employee" />
             <div className="flex flex-col gap-2 items-center">
-              <p className="text-[14px] font-[500] text-[#686868] whitespace-nowrap ">
+              <p className="text-[14px] font-[500] text-[#686868] text-center lg:whitespace-nowrap ">
                 {isDragOver
                   ? "Drop your files here"
                   : "Drag and drop your document or click the upload button "}

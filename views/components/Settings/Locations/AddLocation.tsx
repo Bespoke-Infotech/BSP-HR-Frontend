@@ -34,7 +34,7 @@ const AddLocation = ({
 
   return (
     <ModalContainer showModal={showModal} closeModal={closeModal}>
-      <div className="flex flex-col rounded-[24px] overflow-hidden relative z-[100] w-[500px] ">
+      <div className="flex flex-col rounded-[24px] overflow-hidden relative z-[100] w-full lg:w-[500px] ">
         <div className="p-6 flex items-center justify-between bg-[#F0F0F0]">
           <p className="text-[#1E1E1E] text-[18px] lg:leading-[19px] font-[500]">
             Add Location
@@ -47,7 +47,7 @@ const AddLocation = ({
           />
         </div>
         <div className="p-6 flex flex-col gap-[32px] bg-bespokeWhite ">
-          <div className="grid grid-cols-2 gap-[40px]">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-[40px]">
             <CustomInputField
               type="text"
               label=" "

@@ -9,30 +9,30 @@ const Apps = () => {
   return (
     <AuthenticatedLayout>
       <div className="flex flex-col gap-6">
-        <div className="bg-bespokeBlack px-6 relative py-[57px] flex flex-col gap-4 rounded-[8px] overflow-hidden  ">
-          <p className="text-[24px] font-[500] text-bespokeWhite relative z-10 ">
+        <div className="bg-bespokeBlack px-4 lg:px-6 relative py-4 lg:py-[57px] flex flex-col gap-2 lg:gap-4 rounded-[8px] overflow-hidden  ">
+          <p className="text-[18px] lg:text-[24px] font-[500] text-bespokeWhite relative z-10 ">
             Enough Apps for your everyday need
           </p>
-          <p className="text-[16px] font-[300] text-bespokeWhite relative z-10 ">
+          <p className="text-[12px] lg:text-[16px] font-[300] text-bespokeWhite relative z-10 ">
             Select from our readily available Apps crafted for you and for your
             everyday needs
           </p>
           <Image
             src={AppHeroBackground}
             alt="app-background"
-            className="absolute right-0 top-0 z-0"
+            className="absolute right-0 top-0 z-0 w-full h-full hidden lg:block "
           />
         </div>
         <div className="flex flex-col gap-10">
           {AppData.map((app, index) => (
-            <div className="flex flex-col gap-7 " key={index}>
-              <p className="text-[16px] font-[400] text-[#4B4B4B] ">
+            <div className="flex flex-col gap-4 lg:gap-7 " key={index}>
+              <p className="text-[14px] lg:text-[16px] font-[400] text-[#4B4B4B] ">
                 {app.AppCategory}
               </p>
-              <div className="flex flex-wrap gap-[32px] ">
+              <div className="flex flex-col lg:flex-row lg:flex-wrap gap-[32px] ">
                 {app.AppDetails?.map((detail, index) => (
                   <div
-                    className="p-4 rounded-[8px] border-[0.2px] border-[#B9B9B9] flex flex-col gap-4 items-center bg-[#FFFFFF] "
+                    className="p-4 rounded-[8px] border-[0.2px] border-[#B9B9B9] flex flex-col gap-4 lg:items-center bg-[#FFFFFF] "
                     key={index}
                   >
                     <Image src={detail.image} alt="app-image" />

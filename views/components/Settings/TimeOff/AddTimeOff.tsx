@@ -52,7 +52,7 @@ const AddHoliday = ({
             className="cursor-pointer"
           />
         </div>
-        <div className="grid grid-cols-2 gap-6 gap-x-3 bg-bespokeWhite px-6 py-8">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-3 lg:gap-6 gap-x-3 bg-bespokeWhite px-6 py-8">
           <div className="flex items-center gap-6 p-4 border-[0.5px] border-[#F0F0F0] rounded-[8px] cursor-pointer ">
             <Image src={VacationIcon} alt="vacation-icon" />
             <p className="text-bespokeBlack text-[14px] whitespace-nowrap font-[500]">Vacation</p>

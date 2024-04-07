@@ -42,7 +42,7 @@ const Documents = () => {
     <AuthenticatedLayout>
       <div className="flex flex-col gap-8">
         <div className="flex items-center justify-between">
-          <p className="text-[18px] font-[500] text-bespokeBlack">
+          <p className="text-[16px] lg:text-[18px] font-[500] text-bespokeBlack">
             Documents <span>({employees?.length})</span>
           </p>
           <div className="flex items-center gap-5">
@@ -57,8 +57,8 @@ const Documents = () => {
           </div>
         </div>
 
-        <div className="flex flex-col rounded-[8px_8px_0px_0px] overflow-hidden ">
-          <div className="flex w-[100%] rounded-[8px_8px_0px_0px] overflow-hidden bg-[#F0F0F0] border-[0.5px] border-[#B9B9B950]">
+        <div className="flex flex-col rounded-[8px_8px_0px_0px] overflow-scroll ">
+          <div className="flex w-[250%] lg:w-[100%] rounded-[8px_8px_0px_0px] overflow-hidden bg-[#F0F0F0] border-[0.5px] border-[#B9B9B950]">
             <div className="px-3 py-2 w-[3%] relative flex items-center justify-center ">
               <label
                 htmlFor="bordered-checkbox"
@@ -83,10 +83,10 @@ const Documents = () => {
                 )}
               </label>
             </div>
-            <p className="px-3 py-2 w-[33%] font-[500] text-[12px] leading-[24px] whitespace-nowrap text-[#212529] ">
+            <p className="px-3 py-2 w-[30%] font-[500] text-[12px] leading-[24px] whitespace-nowrap text-[#212529] ">
               Document name
             </p>
-            <p className="px-3 py-2 w-[25%] font-[500] text-[12px] leading-[24px] whitespace-nowrap text-[#212529] ">
+            <p className="px-3 py-2 w-[20%] font-[500] text-[12px] leading-[24px] whitespace-nowrap text-[#212529] ">
               Date Added
             </p>
             <p className="px-3 py-2 w-[30%] font-[500] text-[12px] leading-[24px] whitespace-nowrap text-[#212529] ">
@@ -97,7 +97,7 @@ const Documents = () => {
           {employees?.map((detail: any, index: any) => (
             <form
               key={index}
-              className="flex w-[100%] overflow-hidden items-center border-[0.5px] border-b-[#B9B9B950] hover:bg-[#FFFAF5] cursor-pointer "
+              className="flex w-[250%] lg:w-[100%] overflow-hidden items-center border-[0.5px] border-b-[#B9B9B950] hover:bg-[#FFFAF5] cursor-pointer "
             >
               <div className="px-3 py-2 w-[3%] relative ">
                 <label
@@ -122,12 +122,12 @@ const Documents = () => {
                   )}
                 </label>
               </div>
-              <div className="px-3 py-2 w-[33%] font-[400] text-[14px] leading-[24px] whitespace-nowrap text-[#212529] ">
+              <div className="px-3 py-2 w-[30%] font-[400] text-[14px] leading-[24px] whitespace-nowrap text-[#212529] ">
                 <p className="font-[400] text-[12px] leading-[16px] whitespace-nowrap text-[#212529]">
                   {detail?.name}
                 </p>
               </div>
-              <div className="px-3 py-2 w-[25%] font-[400] text-[14px] leading-[24px] whitespace-nowrap text-[#212529] ">
+              <div className="px-3 py-2 w-[20%] font-[400] text-[14px] leading-[24px] whitespace-nowrap text-[#212529] ">
                 <p className="font-[400] text-[12px] leading-[16px] whitespace-nowrap text-[#212529]">
                   {detail?.jobTitle}
                 </p>
@@ -138,7 +138,7 @@ const Documents = () => {
                   <div className="relative h-[11.2px] w-4 peer-focus:outline-none bg-gray-700 rounded-full peer peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[1px] after:bg-white after:rounded-full after:h-[7px] after:w-[7px] after:transition-all peer-checked:bg-[#219653]"></div>
                 </label>
               </div>
-              <div className="px-3 py-2 w-[5%] font-[400] text-[14px] leading-[24px] whitespace-nowrap text-[#212529] flex  gap-[12px] items-center ">
+              <div className="px-3 py-2 w-[10%] lg:w-[5%] font-[400] text-[14px] leading-[24px] whitespace-nowrap text-[#212529] flex  gap-[12px] items-center ">
                 <Image
                   src={DownloadIcon}
                   alt="download-icon"

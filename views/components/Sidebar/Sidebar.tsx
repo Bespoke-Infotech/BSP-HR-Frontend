@@ -9,7 +9,13 @@ import { LOCAL_STORAGE_KEYS } from "../../helpers/localStorageKeys";
 import { sidebar } from "../../helpers/data/Sidebar";
 import { ClickedIndexContext } from "../../helpers/context";
 
-export default function Sidebar() {
+interface ISidebarProps {
+  isSidebar?: boolean;
+  setIsSidebar?: any;
+}
+
+export default function Sidebar(props: ISidebarProps) {
+  const { isSidebar, setIsSidebar } = props;
   const router = useRouter();
   const ActiveLink = (href: string) => router.pathname.startsWith(href);
   const { logout } = useAuth();
@@ -50,16 +56,24 @@ export default function Sidebar() {
 
   return (
     <>
-      <div className="flex flex-col max-w-[250px] w-full h-screen border border-r-[#B9B9B930] fixed left-0 top-0 z-50 overflow-scroll">
-        <div className="flex items-center px-6 py-3 border border-b-[#B9B9B930] ">
-          <Image src={Logo} alt="bespoke-logo" className="" style={{width: '200px'}} />
+      <div
+        className={`flex flex-col max-w-[250px] w-full h-screen border border-r-[#B9B9B930] fixed bg-bespokeWhite lg:left-0 top-0 z-[51] lg:z-50 overflow-scroll ${
+          isSidebar ? "left-0" : "-left-[250px]"
+        }`}
+      >
+        <div className="flex items-center justify-between px-6 py-3 border border-b-[#B9B9B930] ">
+          <Image src={Logo} alt="bespoke-logo" className="lg:w-[100%]" />
+          <p
+            className="lg:hidden cursor-pointer text-[18px]"
+            onClick={() => setIsSidebar(false)}
+          >
+            x
+          </p>
         </div>
         <div className="p-4 flex flex-col gap-[24px] ">
           {sidebar.map((item, index) => (
             <div className="flex flex-col gap-[8px]" key={index}>
-              {index>0 &&
-                <hr />
-              }
+              {index > 0 && <hr />}
               <p className="text-[16px] font-[500] text-[#686868] px-2 ">
                 {item?.section}
               </p>

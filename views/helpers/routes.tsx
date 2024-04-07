@@ -11,6 +11,7 @@ export const ROUTES = {
   ALL_ASSETS:"/assets/all",
   ADD_ASSETS:"/assets/all/add",
   PAYROLL:"/payroll",
+  ADD_PAYROLL:"/payroll/add",
   CALENDAR:"/calendar",
   DOCUMENTS:"/documents",
   ADD_DOCUMENTS:"/documents/add",
