@@ -34,8 +34,8 @@ const JobOtherPopup = ({
 
   return (
     <ModalContainer showModal={showModal} closeModal={closeModal}>
-      <div className="flex flex-col rounded-[24px] overflow-hidden relative z-[100] w-[500px] ">
-        <div className="p-6 flex items-center justify-between bg-[#F0F0F0]">
+      <div className="flex flex-col rounded-[24px] overflow-hidden relative z-[100] w-full lg:w-[500px] ">
+        <div className="p-4 lg:p-6 flex items-center justify-between bg-[#F0F0F0]">
           <p className="text-[#1E1E1E] text-[18px] lg:leading-[19px] font-[500]">
             {data?.name}
           </p>
@@ -46,7 +46,7 @@ const JobOtherPopup = ({
             className="cursor-pointer"
           />
         </div>
-        <div className="p-6 flex flex-col gap-[32px] bg-bespokeWhite ">
+        <div className="p-4 lg:p-6 flex flex-col gap-[32px] bg-bespokeWhite ">
           <CustomInputField
             type="text"
             label=" "

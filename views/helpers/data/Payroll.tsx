@@ -1,0 +1,42 @@
+export const payroll = [
+  {
+    name: "Adedeji Richards",
+    payday: "Mar 27, 2024",
+    currency: "USD",
+    amount: "$1,500.00",
+    employmentType: "Remote-Full Time",
+    status: "Successful",
+  },
+  {
+    name: "Adedeji Richards",
+    payday: "Mar 27, 2024",
+    currency: "USD",
+    amount: "$1,500.00",
+    employmentType: "Remote-Full Time",
+    status: "Failed",
+  },
+  {
+    name: "Adedeji Richards",
+    payday: "Mar 27, 2024",
+    currency: "USD",
+    amount: "$1,500.00",
+    employmentType: "Remote-Full Time",
+    status: "Pending",
+  },
+  {
+    name: "Adedeji Richards",
+    payday: "Mar 27, 2024",
+    currency: "USD",
+    amount: "$1,500.00",
+    employmentType: "Remote-Full Time",
+    status: "Failed",
+  },
+  {
+    name: "Adedeji Richards",
+    payday: "Mar 27, 2024",
+    currency: "USD",
+    amount: "$1,500.00",
+    employmentType: "Remote-Full Time",
+    status: "Successful",
+  },
+];

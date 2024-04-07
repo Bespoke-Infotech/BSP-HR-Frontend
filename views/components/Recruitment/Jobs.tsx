@@ -56,27 +56,29 @@ const Jobs = () => {
 
   return (
     <div className="flex flex-col gap-6 w-full">
-      <div className="flex items-center justify-between">
-        <CustomInputField
-          type="text"
-          label=" "
-          name="search"
-          onChange={(e: any) => handleInputChange(e)}
-          required
-          placeholder="Search Job"
-          extraLabel="Find"
-          style="bg-transparent w-[400px]"
-        />
+      <div className="flex flex-col lg:flex-row gap-4 lg:items-center lg:justify-between">
+        <div className="w-full lg:w-[400px]">
+          <CustomInputField
+            type="text"
+            label=" "
+            name="search"
+            onChange={(e: any) => handleInputChange(e)}
+            required
+            placeholder="Search Job"
+            extraLabel="Find"
+            style="bg-transparent"
+          />
+        </div>
         <div
           className="flex items-center gap-2 px-4 py-2 rounded-[4px] bg-bespokeDeepPurple cursor-pointer"
           //   onClick={handleClick}
         >
-          <p className="text-[16px] font-[600] text-bespokeWhite text-center whitespace-nowrap">
+          <p className="text-[16px] font-[600] text-bespokeWhite text-center whitespace-nowrap w-full lg:w-fit">
             Add job
           </p>
         </div>
       </div>
-      <div className="grid grid-cols-3 gap-5 gap-y-6 w-full">
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-5 gap-y-6 w-full">
         {jobData.map((job, index) => (
           <div
             className="bg-bespokeWhite flex flex-col gap-3 py-3 px-4 border-[0.2px] border-[#B9B9B9] rounded-[8px] w-full "
@@ -113,7 +115,7 @@ const Jobs = () => {
                   </Popover.Button>
 
                   <Popover.Panel
-                    className="absolute right-0 z-50  w-screen md:w-[145px] px-3 py-1 sm:px-2 bg-bespokeWhite rounded-[8px] shadow-lg border-[0.2px] border-[#B9B9B9] ;
+                    className="absolute right-0 z-50 w-[145px] px-3 py-1 sm:px-2 bg-bespokeWhite rounded-[8px] shadow-lg border-[0.2px] border-[#B9B9B9] ;
                     "
                   >
                     <div className="">

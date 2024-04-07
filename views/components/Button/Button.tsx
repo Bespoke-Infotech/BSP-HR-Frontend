@@ -1,9 +1,9 @@
-import dynamic from 'next/dynamic';
+import dynamic from "next/dynamic";
 import Link from "next/link";
 // import Lottie from "react-lottie-player";
-import Spinner from "../../assets/json/spinner-white.json"
+import Spinner from "../../assets/json/spinner-white.json";
 import Image from "next/image";
-const Lottie = dynamic(() => import('react-lottie-player'), { ssr: false });
+const Lottie = dynamic(() => import("react-lottie-player"), { ssr: false });
 const style = { height: "30px", width: "30px" };
 interface ButtonProps {
   title: any;
@@ -42,7 +42,7 @@ export const PrimaryButton = ({
       className={`${
         (loader || beforeIcon || afterIcon) &&
         "flex justify-center items-center"
-      } text-white border border-solid border-bespokeOrange bg-bespokeOrange hover:bg-[#E28E26] hover:border-[#E28E26] disabled:bg-[#FDE0BD] disabled:border-[#FDE0BD] py-[12px] px-6 text-[14px] font-[400] rounded-[4px] focus:outline-none ${className}`}
+      } text-bespokeWhite border border-solid border-bespokeOrange bg-bespokeOrange hover:bg-[#E28E26] hover:border-[#E28E26] disabled:bg-[#FDE0BD] disabled:border-[#FDE0BD] py-[12px] px-6 text-[14px] font-[400] rounded-[4px] focus:outline-none ${className}`}
       onClick={onClick}
       disabled={disabled ? true : false}
       {...rest}
@@ -52,7 +52,7 @@ export const PrimaryButton = ({
           <Image src={beforeIcon} alt="" />
         </span>
       )}
-      {title}
+      <p>{title}</p>
       {afterIcon && (
         <span className="ml-4">
           <Image src={afterIcon} alt="" />

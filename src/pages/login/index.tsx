@@ -20,12 +20,12 @@ const Login = () => {
   const router = useRouter();
 
   return (
-    <div className="w-full h-screen flex justify-center bg-[#FFFAF5] pt-[78px]">
-      <div className="py-6 px-[54px] bg-bespokeWhite rounded-[24px] h-fit shadow-1sm flex flex-col gap-[32px]">
-        <h1 className="text-[32px] font-[600] text-[#000000]">
+    <div className="w-full h-screen flex justify-center bg-[#FFFAF5] pt-[78px] px-4 lg:px-unset">
+      <div className="px-4 py-6 lg:px-[54px] bg-bespokeWhite rounded-[24px] h-fit shadow-1sm flex flex-col gap-[32px] w-full lg:w-[unset]">
+        <h1 className="text-[24px] lg:text-[32px] font-[600] text-[#000000]">
           Signin to Bespoke
         </h1>
-        <div className="flex flex-col w-[322px] gap-[24px] ">
+        <div className="flex flex-col w-full lg:w-[322px] gap-[24px] ">
           <CustomInputField
             type="text"
             label=" "

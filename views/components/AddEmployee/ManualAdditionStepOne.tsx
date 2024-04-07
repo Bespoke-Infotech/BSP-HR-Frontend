@@ -72,7 +72,7 @@ const ManualAdditionStepOne = ({
         </div>
       </div>
 
-      <div className="flex items-center gap-[38px]">
+      <div className="flex items-center gap-[38px] overflow-scroll">
         <div
           className="flex items-center gap-1 cursor-pointer "
           onClick={() => setSetupStep("ManualAdditionStepOne")}
@@ -84,7 +84,9 @@ const ManualAdditionStepOne = ({
               </span>
             </div>
           </div>
-          <p className="text-[#686868] text-[12px] font-[300] ">Personal</p>
+          <p className="text-[#686868] text-[12px] font-[300] whitespace-nowrap ">
+            Personal
+          </p>
         </div>
         <div
           className="flex items-center gap-1 cursor-pointer opacity-60 "
@@ -105,7 +107,9 @@ const ManualAdditionStepOne = ({
               </span>
             </div>
           </div>
-          <p className="text-[#686868] text-[12px] font-[300] ">Job</p>
+          <p className="text-[#686868] text-[12px] font-[300] whitespace-nowrap ">
+            Job
+          </p>
         </div>
         <div
           className="flex items-center gap-1 cursor-pointer opacity-60 "
@@ -124,7 +128,9 @@ const ManualAdditionStepOne = ({
               </span>
             </div>
           </div>
-          <p className="text-[#686868] text-[12px] font-[300] ">Compensation</p>
+          <p className="text-[#686868] text-[12px] font-[300] whitespace-nowrap ">
+            Compensation
+          </p>
         </div>
         {details?.newHire && (
           <div
@@ -144,7 +150,7 @@ const ManualAdditionStepOne = ({
                 </span>
               </div>
             </div>
-            <p className="text-[#686868] text-[12px] font-[300] ">
+            <p className="text-[#686868] text-[12px] font-[300] whitespace-nowrap ">
               Contact on the first day
             </p>
           </div>
@@ -154,7 +160,7 @@ const ManualAdditionStepOne = ({
       <div className="flex flex-col gap-4">
         <p className="text-bespokeBlack text-[16px] font-[500] ">Personal</p>
         <form className="flex flex-col gap-8">
-          <div className="grid grid-cols-3 gap-8 gap-y-4 w-[820px]">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 gap-y-4 w-full lg:w-[820px]">
             <CustomInputField
               type="text"
               label=" "

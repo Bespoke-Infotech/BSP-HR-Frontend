@@ -12,17 +12,17 @@ const EntryModal = ({
   handleNewHire,
 }: SetupStepPropsType) => {
   return (
-    <div className="w-full py-[80px] border-[0.5px] border-[#B9B9B9] rounded-[16px] flex flex-col gap-[16px] justify-center items-center">
+    <div className="w-full py-[80px] px-4 border-[0.5px] border-[#B9B9B9] rounded-[16px] flex flex-col gap-[16px] justify-center items-center">
       <Image src={AddEmployee} alt="add-employee" />
       <div className="flex flex-col gap-2 items-center">
         <p className="text-[16px] font-[500] text-bespokeBlack whitespace-nowrap ">
           Add Employee
         </p>
-        <p className="text-[14px] font-[500] text-[#686868] whitespace-nowrap ">
+        <p className="text-[14px] font-[500] text-[#686868] ">
           Lorem ipsum dolor sit amet consectetur.
         </p>
       </div>
-      <div className="flex items-center gap-4 mt-2">
+      <div className="flex flex-col lg:flex-row items-center gap-4 mt-2 w-full lg:w-fit">
         <PrimaryButton
           title="Add new employee"
           onClick={() => setSetupStep("ManualAdditionStepOne")}

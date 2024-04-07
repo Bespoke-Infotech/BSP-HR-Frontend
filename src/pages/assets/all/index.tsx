@@ -40,7 +40,7 @@ const AllAssets = () => {
     <AuthenticatedLayout>
       <div className="flex flex-col gap-8">
         <div className="flex items-center justify-between">
-          <p className="text-[18px] font-[500] text-bespokeBlack">Assets</p>
+          <p className="text-[16px] lg:text-[18px] font-[500] text-bespokeBlack">Assets</p>
           <div className="flex items-center gap-5">
             <div
               className="flex items-center gap-2 px-2 py-1 rounded-[4px] bg-bespokeDeepPurple cursor-pointer"
@@ -53,8 +53,8 @@ const AllAssets = () => {
           </div>
         </div>
 
-        <div className="flex flex-col rounded-[8px_8px_0px_0px] overflow-hidden ">
-          <div className="flex w-[100%] rounded-[8px_8px_0px_0px] overflow-hidden bg-[#F0F0F0] border-[0.5px] border-[#B9B9B950]">
+        <div className="flex flex-col rounded-[8px_8px_0px_0px] overflow-scroll ">
+          <div className="flex w-[250%] lg:w-[100%] rounded-[8px_8px_0px_0px] overflow-hidden bg-[#F0F0F0] border-[0.5px] border-[#B9B9B950]">
             <div className="px-3 py-2 w-[3%] relative flex items-center justify-center ">
               <label
                 htmlFor="bordered-checkbox"
@@ -82,23 +82,23 @@ const AllAssets = () => {
             <p className="px-3 py-2 w-[35%] font-[500] text-[12px] leading-[24px] whitespace-nowrap text-[#212529] ">
               Asset name
             </p>
-            <p className="px-3 py-2 w-[15%] font-[500] text-[12px] leading-[24px] whitespace-nowrap text-[#212529] ">
+            <p className="px-3 py-2 w-[20%] lg:w-[15%] font-[500] text-[12px] leading-[24px] whitespace-nowrap text-[#212529] ">
               Category
             </p>
-            <p className="px-3 py-2 w-[15%] font-[500] text-[12px] leading-[24px] whitespace-nowrap text-[#212529] ">
+            <p className="px-3 py-2 w-[20%] lg:w-[15%] font-[500] text-[12px] leading-[24px] whitespace-nowrap text-[#212529] ">
               Serial number
             </p>
-            <p className="px-3 py-2 w-[10%] font-[500] text-[12px] leading-[24px] whitespace-nowrap text-[#212529] ">
+            <p className="px-3 py-2 w-[15%] lg:w-[10%] font-[500] text-[12px] leading-[24px] whitespace-nowrap text-[#212529] ">
               Used by
             </p>
-            <p className="px-3 py-2 w-[10%] font-[500] text-[12px] leading-[24px] whitespace-nowrap text-[#212529] ">
+            <p className="px-3 py-2 w-[15%] lg:w-[10%] font-[500] text-[12px] leading-[24px] whitespace-nowrap text-[#212529] ">
               Location
             </p>
           </div>
           {employees?.map((detail: any, index: any) => (
             <div
               key={index}
-              className="flex w-[100%] overflow-hidden items-center border-[0.5px] border-b-[#B9B9B950] hover:bg-[#FFFAF5] cursor-pointer "
+              className="flex w-[250%] lg:w-[100%] overflow-hidden items-center border-[0.5px] border-b-[#B9B9B950] hover:bg-[#FFFAF5] cursor-pointer "
               onClick={() => router.push(`all/${index}`)}
             >
               <div className="px-3 py-2 w-[3%] relative ">
@@ -129,22 +129,22 @@ const AllAssets = () => {
                   {detail?.name}
                 </p>
               </div>
-              <div className="px-3 py-2 w-[15%] font-[400] text-[14px] leading-[24px] whitespace-nowrap text-[#212529] ">
+              <div className="px-3 py-2 w-[20%] lg:w-[15%] font-[400] text-[14px] leading-[24px] whitespace-nowrap text-[#212529] ">
                 <p className="font-[400] text-[12px] leading-[16px] whitespace-nowrap text-[#212529]">
                   {detail?.jobTitle}
                 </p>
               </div>
-              <div className="px-3 py-2 w-[15%] font-[400] text-[14px] leading-[24px] whitespace-nowrap text-[#212529] ">
+              <div className="px-3 py-2 w-[20%] lg:w-[15%] font-[400] text-[14px] leading-[24px] whitespace-nowrap text-[#212529] ">
                 <p className="font-[400] text-[12px] leading-[16px] whitespace-nowrap text-[#212529]">
                   {detail?.department}
                 </p>
               </div>
-              <div className="px-3 py-2 w-[10%] font-[400] text-[14px] leading-[24px] whitespace-nowrap text-[#212529] ">
+              <div className="px-3 py-2 w-[15%] lg:w-[10%] font-[400] text-[14px] leading-[24px] whitespace-nowrap text-[#212529] ">
                 <p className="font-[400] text-[12px] leading-[16px] whitespace-nowrap text-[#212529]">
                   {detail?.division}
                 </p>
               </div>
-              <div className="px-3 py-2 w-[10%] font-[400] text-[14px] leading-[24px] whitespace-nowrap text-[#212529] ">
+              <div className="px-3 py-2 w-[15%] lg:w-[10%] font-[400] text-[14px] leading-[24px] whitespace-nowrap text-[#212529] ">
                 <p className="font-[400] text-[12px] leading-[16px] whitespace-nowrap text-[#212529]">
                   {detail?.type}
                 </p>

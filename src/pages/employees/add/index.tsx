@@ -52,22 +52,22 @@ const AddEmployee = () => {
   return (
     <AuthenticatedLayout>
       <div className="flex flex-col gap-8">
-        <div className="flex items-center justify-between">
-          <p className="text-[18px] font-[500] text-bespokeBlack">
+        <div className="flex flex-col lg:flex-row lg:justify-between lg:items-center gap-4">
+          <p className="text-[16px] lg:text-[18px] font-[500] text-bespokeBlack">
             Add Employees
           </p>
-          <div className="flex items-center gap-5">
-            <div className="flex items-center gap-2 px-2 py-1 rounded-[4px] border-[0.5px] border-[#B9B9B9] cursor-pointer">
+          <div className="grid grid-cols-2 lg:flex lg:items-center gap-5">
+            <div className="col-span-2 flex items-center justify-between gap-2 px-2 py-1 rounded-[4px] border-[0.5px] border-[#B9B9B9] cursor-pointer">
               <p className="text-[12px] font-[400] text-bespokeBlack">
                 <span>01 July </span> - <span>31 July 24 </span>
               </p>
               <Image src={ArrowDown} alt="arrow-down" />
             </div>
-            <div className="flex items-center gap-2 px-2 py-1 rounded-[4px] border-[0.5px] border-[#B9B9B9] cursor-pointer">
+            <div className="flex items-center justify-between gap-2 px-2 py-1 rounded-[4px] border-[0.5px] border-[#B9B9B9] cursor-pointer">
               <p className="text-[12px] font-[400] text-bespokeBlack">Filter</p>
               <Image src={ArrowDown} alt="arrow-down" />
             </div>
-            <div className="flex items-center gap-2 px-2 py-1 rounded-[4px] bg-bespokeDeepPurple cursor-pointer">
+            <div className="flex items-center justify-center gap-2 px-2 py-1 rounded-[4px] bg-bespokeDeepPurple cursor-pointer">
               <p className="text-[12px] font-[400] text-bespokeWhite">
                 Export CSV
               </p>

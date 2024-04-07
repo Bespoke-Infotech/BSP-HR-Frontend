@@ -2,7 +2,7 @@
   "/_app": "pages/_app.js",
   "/_error": "pages/_error.js",
   "/_document": "pages/_document.js",
-  "/assets/inventory": "pages/assets/inventory.js",
-  "/overview": "pages/overview.js",
-  "/": "pages/index.js"
+  "/assets/all": "pages/assets/all.js",
+  "/employees/add": "pages/employees/add.js",
+  "/assets/all/add": "pages/assets/all/add.js"
 }

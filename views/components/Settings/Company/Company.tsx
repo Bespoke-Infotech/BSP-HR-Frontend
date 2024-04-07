@@ -156,7 +156,7 @@ const Company = () => {
       <div className="flex flex-col gap-4">
         <div className="flex flex-col gap-4 ">
           <p className="text-[16px] font-[400] text-bespokeBlack ">Company</p>
-          <div className="grid grid-cols-3 gap-8 gap-y-4 w-[820px]">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 gap-y-4 w-full lg:w-[820px]">
             <CustomInputField
               type="text"
               label=" "
@@ -213,7 +213,7 @@ const Company = () => {
           <p className="text-[14px] font-[400] text-bespokeBlack ">
             Upload company logo
           </p>
-          <div className="flex flex-col w-[50%] gap-4">
+          <div className="flex flex-col w-full lg:w-[50%] gap-4">
             <div
               className={`w-full py-[80px] bg-[#FFFAF5] border-dashed cursor-pointer ${
                 isDragOver ? "border-[3px]" : "border"
@@ -256,7 +256,7 @@ const Company = () => {
         <PrimaryButton
           title="Save and continue"
           //   onClick={handleBrowseClick}
-          className="text-[14px] w-fit pt-1 pb-1 font-[400] whitespace-nowrap mt-5"
+          className="text-[14px] w-full lg:w-fit pt-1 pb-1 font-[400] whitespace-nowrap mt-5"
           //   disabled={!details.email || !details.password}
         />
       </div>

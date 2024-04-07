@@ -96,7 +96,7 @@ const AddAsset = () => {
               Basic information
             </p>
             {/* <div className="flex flex-col gap-8"> */}
-            <div className="grid grid-cols-2 gap-x-[54px] gap-y-4 w-[820px]">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-x-[54px] gap-y-4 w-full lg:w-[820px]">
               <CustomInputField
                 type="text"
                 label=" "
@@ -217,7 +217,7 @@ const AddAsset = () => {
               Assignee Details
             </p>
             {/* <div className="flex flex-col gap-8"> */}
-            <div className="grid grid-cols-2 gap-x-[54px] gap-y-4 w-[820px]">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-x-[54px] gap-y-4 w-full lg:w-[820px]">
               <CustomSelect
                 placeholder=" "
                 extraLabel="Used by"

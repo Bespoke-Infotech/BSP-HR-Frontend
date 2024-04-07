@@ -121,13 +121,13 @@ const AssetDetails = () => {
             <div className="flex flex-col">
               {historyData.map((history, index) => (
                 <div
-                  className="p-3 border-[0.2px] border-transparent border-b-[#B9B9B9] grid grid-cols-7 items-center "
+                  className="p-3 border-[0.2px] border-transparent border-b-[#B9B9B9] grid grid-cols-1 lg:grid-cols-7 items-center "
                   key={index}
                 >
-                  <p className="text-[#686868] text-[12px] font-[400] col-span-2 ">
+                  <p className="text-[#686868] text-[12px] font-[400] lg:col-span-2 ">
                     {history.time}
                   </p>
-                  <p className="text-bespokeBlack text-[12px] font-[400] col-span-5 ">
+                  <p className="text-bespokeBlack text-[12px] font-[400] lg:col-span-5 ">
                     {history.history}
                   </p>
                 </div>
@@ -140,7 +140,7 @@ const AssetDetails = () => {
                   Basic information
                 </p>
                 {/* <div className="flex flex-col gap-8"> */}
-                <div className="grid grid-cols-2 gap-x-[54px] gap-y-4 w-[820px]">
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-x-[54px] gap-y-4 w-full lg:w-[820px]">
                   <CustomInputField
                     type="text"
                     label=" "
@@ -265,7 +265,7 @@ const AssetDetails = () => {
                   Assignee Details
                 </p>
                 {/* <div className="flex flex-col gap-8"> */}
-                <div className="grid grid-cols-2 gap-x-[54px] gap-y-4 w-[820px]">
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-x-[54px] gap-y-4 w-full lg:w-[820px]">
                   <CustomSelect
                     placeholder=" "
                     extraLabel="Used by"

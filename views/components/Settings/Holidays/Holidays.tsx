@@ -32,7 +32,7 @@ const Holidays = () => {
 
   return (
     <>
-      <div className="flex flex-col gap-4 w-[820px]">
+      <div className="flex flex-col gap-4 w-full lg:w-[820px]">
         <div className="flex items-center justify-between w-full">
           <p className="text-[16px] font-[400] text-bespokeBlack ">Holidays</p>
           <div
@@ -56,8 +56,8 @@ const Holidays = () => {
                   <br />
                   <p>01</p>
                 </div>
-                <div className="flex flex-col gap-2">
-                  <p className="text-[18px] font-[500] text-bespokeBlack ">
+                <div className="flex flex-col gap-1 lg:gap-2">
+                  <p className="text-[14px] lg:text-[18px] font-[500] text-bespokeBlack ">
                     {holiday.event}
                   </p>
                   <p className="text-[12px] font-[200] text-bespokeBlack ">
