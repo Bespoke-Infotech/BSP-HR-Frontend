@@ -1,23 +1,45 @@
-name: Trivy Image Scan Workflow
+name: trivy-scanning
 
 on:
-    workflow_run:
-      workflows: 
-        - Code Build Workflow
-      types:
-        - completed
-  
+  push:
+    branches: [ "Staging" ]
+  pull_request:
+    branches: [ "Staging" ]
+  # schedule:
+  #   - cron: '41 16 * * 0'
+
+permissions: write-all
+
 jobs:
-    build:
-      name: Docker Image Scan
-      runs-on: self-hosted
-      steps:
-        - name: Checkout Repository
-          uses: actions/checkout@v2
+  trivy-scanning-job:
+    name: trivy-sec-scan
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
 
-        - name: Pull the Docker image
-          run: docker pull bespoke/react-aws-eks-github-actions:latest
+      - name: Run Trivy vulnerability scanner in repo mode
+        uses: aquasecurity/trivy-action@master
+        with:
+          scan-type: 'fs'
+          ignore-unfixed: true
+          format: 'sarif'
+          output: 'trivy-results.sarif'
+          severity: 'HIGH,CRITICAL'
 
-  
-        - name: Trivy image scan
-          run: trivy image codewithmuh/react-aws-eks-github-actions:latest 
+      - name: Upload Trivy scan results to GitHub Security tab
+        uses: github/codeql-action/upload-sarif@v1
+        with:
+          sarif_file: 'trivy-results.sarif'
+
+      - name: Build an image from Dockerfile
+        run: |
+          docker build -t docker.io/devops-counsel/py-app:${{ github.sha }} .
+      
+      - name: Run Trivy vulnerability scanner
+        uses: aquasecurity/trivy-action@master
+        with:
+          image-ref: 'docker.io/devops-counsel/py-app:${{ github.sha }}'
+          format: 'table'
+          vuln-type: 'os,library'
+          severity: 'CRITICAL,HIGH'
