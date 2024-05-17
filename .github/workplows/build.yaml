@@ -1,0 +1,25 @@
+name: Code Build Workflow
+
+#on:
+#    workflow_run:
+#      workflows: 
+#        - Sonar Code Review Workflow
+#      types:
+#        - completed
+        
+jobs:
+  build:
+    name: Build
+    runs-on: self-hosted
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Docker build and push
+        run: |
+          docker build -t bsp-hr-frontend-actions .
+          docker tag bsp-hr-frontend-actions bespoke/bsp-hr-frontend-actions:latest
+          docker login -u ${{ secrets.DOCKERHUB_USERNAME }} -p ${{ secrets.DOCKERHUB_TOKEN }}
+          docker push bespoke/bsp-hr-frontend-actions:latest
+        env:
+          DOCKER_CLI_ACI: 1
