@@ -1,6 +1,3 @@
-/* eslint-disable jsx-a11y/img-redundant-alt */
-/* eslint-disable no-undef */
-/* eslint-disable react/no-unescaped-entities */
 import React, { useEffect, useState } from "react";
 import "react-datepicker/dist/react-datepicker.css";
 import { Link } from "react-router-dom";
