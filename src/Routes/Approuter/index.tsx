@@ -69,9 +69,10 @@ const AppRouter = () => {
   return (
     <div>
       <Provider store={store}>
-        <BrowserRouter basename="/react/template">
+        <BrowserRouter basename="/">
           <ScrollToTop />
           <Routes>
+            
             <Route path="/" element={<Login />} />
             <Route path="/change-password" element={<ChangePassword />} />
             <Route path="/register" element={<Register />} />
