@@ -45,14 +45,14 @@ jobs:
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           AWS_DEFAULT_REGION: ${{ secrets.AWS_REGION }}
     
-      - name: Docker build and push
-        run: |
-          docker build -t bsp-hr-fe-actions .
-          docker tag bsp-hr-fe-actions deeaxfun2/bsp-hr-fe-actions:latest
-          docker login -u ${{ secrets.DOCKERHUB_USERNAME }} -p ${{ secrets.DOCKERHUB_TOKEN }}
-          docker push deeaxfun2/bsp-hr-fe-actions:latest
-        env:
-          DOCKER_CLI_ACI: 1
+      # - name: Docker build and push
+      #   run: |
+      #     docker build -t bsp-hr-fe-actions .
+      #     docker tag bsp-hr-fe-actions deeaxfun2/bsp-hr-fe-actions:latest
+      #     docker login -u ${{ secrets.DOCKERHUB_USERNAME }} -p ${{ secrets.DOCKERHUB_TOKEN }}
+      #     docker push deeaxfun2/bsp-hr-fe-actions:latest
+      #   env:
+      #     DOCKER_CLI_ACI: 1
 
       ## Deploying to server
       - name: Deploy to Server
