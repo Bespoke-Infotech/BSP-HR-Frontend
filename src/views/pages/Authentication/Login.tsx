@@ -103,7 +103,7 @@ const Login = () => {
               {/* Account Logo */}
               <div className="account-logo">
                 <Link to="/admin-dashboard">
-                  <img src={Applogo} alt="Dreamguy's Technologies" />
+                  {/* <img src={Applogo} alt="Dreamguy's Technologies" /> */}
                 </Link>
               </div>
               {/* /Account Logo */}

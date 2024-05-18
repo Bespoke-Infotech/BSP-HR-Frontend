@@ -48,9 +48,9 @@ jobs:
       - name: Docker build and push
         run: |
           docker build -t bsp-hr-fe-actions .
-          docker tag bsp-hr-fe-actions bespoke/bsp-hr-fe-actions:latest
+          docker tag bsp-hr-fe-actions deeaxfun2/bsp-hr-fe-actions:latest
           docker login -u ${{ secrets.DOCKERHUB_USERNAME }} -p ${{ secrets.DOCKERHUB_TOKEN }}
-          docker push bespoke/bsp-hr-fe-actions:latest
+          docker push deeaxfun2/bsp-hr-fe-actions:latest
         env:
           DOCKER_CLI_ACI: 1
 
