@@ -63,6 +63,7 @@ jobs:
           REMOTE_PORT: ${{ secrets.SSH_PORT }}
           REMOTE_USER: ${{ secrets.AWS_SSH_USER }}
           TARGET: ${{ secrets.BUILD_DIR }}
+          ARGS: -avzr
           EXCLUDE: "/dist/, /node_modules/"
       - name: executing remote ssh commands using ssh key
         uses: appleboy/ssh-action@master
