@@ -18,7 +18,7 @@ rsync -ar build/* ${SERVER_USER}@${DEPLOY_SERVER}:${PROJECT_DIR}
 echo "Building and Starting App"
 ssh -o StrictHostKeyChecking=no ${SERVER_USER}@${DEPLOY_SERVER} "cd ${PROJECT_DIR}; ls -la;"
 
-#echo "App started successfully"
+echo "App started successfully"
 
 
 
