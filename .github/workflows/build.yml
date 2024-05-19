@@ -67,12 +67,12 @@ jobs:
           EXCLUDE: "/dist/, /node_modules/"
       - name: executing remote ssh commands using ssh key
         uses: appleboy/ssh-action@master
-        run: sh ../../deploy.sh
         with:
           host: ${{ secrets.AWS_SSH_HOST }}
           username: ${{ secrets.AWS_SSH_USER }}
           key: ${{ secrets.AWS_SSH_PRIVATE_KEY }}
           port: ${{ secrets.SSH_PORT }}
+          script-file: /var/www/vhosts/frontend/hr/deploy.sh
           # script: |
           #   bash deploy.sh
             
