@@ -111,7 +111,7 @@ const Sidebar = () => {
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
-      <div className="sidebar-inner slimscroll" style={{ overflow: "hidden" }}>
+      <div className="sidebar-inner slimscroll" style={{ overflow:"scroll", marginBottom:"500px" }}>
         <div id="sidebar-menu" className="sidebar-menu">  
         <nav className="greedys sidebar-horizantal" id="horizantal-sidebar">
 
@@ -1787,7 +1787,7 @@ const Sidebar = () => {
                             {menu.hasSubRoute === false ? (
                               <li key={menuIndex + 1}  className={pathname == menu.route ? "active" : ""}>
                                 <Link
-                                  to={menu.route}
+                                  to={menu.route || ""}
                                  
                                 >
                                   {/* {menu.icon} */}
@@ -1819,7 +1819,7 @@ const Sidebar = () => {
                                       : 'none',
                                   }}
                                 >
-                                  {menu.subMenus.map(
+                                  {menu?.subMenus?.map(
                                     (
                                       subMenus,
                                       subMenu,
