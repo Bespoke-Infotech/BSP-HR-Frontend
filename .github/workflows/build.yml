@@ -1,0 +1,87 @@
+name: BSP Hr Fe CI
+
+on:
+  push:
+    branches: [ "Staging" ]
+
+  workflow_run:
+    workflows: 
+      - trivy-scanning
+    types:
+      - completed
+
+jobs:
+  deploy:
+    name: Deploy to Server on Staging branch push
+    runs-on: ubuntu-latest
+    timeout-minutes: 6
+    steps:
+      - name: Checkout the files
+        uses: actions/checkout@v4
+      - name: Install Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20.x'
+      - name: 'Create env file'
+        run: |
+          echo "${{ secrets.STAG_ENV_FILE }}" > .env
+      - name: Install yarn
+        run: npm install -g yarn
+      - name: Install dependencies
+        run: yarn install
+      - name: Run build task
+        run: yarn build
+        
+      - name: Get runner IP
+        run: |
+          ip=`curl https://ipinfo.io/ip`
+          echo $ip
+          echo "action_runner_ip=$ip" >> $GITHUB_ENV
+      - name: Add Github Actions IP to Security group as a inbound rule
+        run: |
+          aws ec2 authorize-security-group-ingress --group-id ${{ secrets.AWS_SECURITY_GROUP_ID }} --protocol tcp --port 22 --cidr ${{ env.action_runner_ip }}/32
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          AWS_DEFAULT_REGION: ${{ secrets.AWS_REGION }}
+    
+      # - name: Docker build and push
+      #   run: |
+      #     docker build -t bsp-hr-fe-actions .
+      #     docker tag bsp-hr-fe-actions deeaxfun2/bsp-hr-fe-actions:latest
+      #     docker login -u ${{ secrets.DOCKERHUB_USERNAME }} -p ${{ secrets.DOCKERHUB_TOKEN }}
+      #     docker push deeaxfun2/bsp-hr-fe-actions:latest
+      #   env:
+      #     DOCKER_CLI_ACI: 1
+
+      ## Deploying to server
+      - name: Deploy to Server
+        uses: easingthemes/ssh-deploy@main
+        env:
+          SSH_PRIVATE_KEY: ${{ secrets.AWS_SSH_PRIVATE_KEY }}
+          REMOTE_HOST: ${{ secrets.AWS_SSH_HOST }}
+          REMOTE_PORT: ${{ secrets.SSH_PORT }}
+          REMOTE_USER: ${{ secrets.AWS_SSH_USER }}
+          TARGET: ${{ secrets.BUILD_DIR }}
+          ARGS: -avzr --exclude="/*/.local" --rsync-path="sudo rsync"
+          EXCLUDE: "/dist/, /node_modules/"
+      - name: executing remote ssh commands using ssh key
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.AWS_SSH_HOST }}
+          username: ${{ secrets.AWS_SSH_USER }}
+          key: ${{ secrets.AWS_SSH_PRIVATE_KEY }}
+          port: ${{ secrets.SSH_PORT }}
+          script-file: /var/www/vhosts/frontend/hr/deploy.sh
+          # script: |
+          #   bash deploy.sh
+            
+      # Remove Github Action IP
+      - name: Remove Github Actions IP from security group
+        run: |
+          aws ec2 revoke-security-group-ingress --group-id ${{ secrets.AWS_SECURITY_GROUP_ID }} --protocol tcp --port 22 --cidr ${{ env.action_runner_ip }}/32
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          AWS_DEFAULT_REGION: ${{ secrets.AWS_REGION }}
+        if: always()

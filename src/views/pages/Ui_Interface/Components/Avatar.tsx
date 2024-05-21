@@ -1,4 +1,3 @@
-/* eslint-disable jsx-a11y/img-redundant-alt */
 import React from 'react'
 import { Avatar_02, Avatar_03, Avatar_04, Avatar_05 } from '../../../../Routes/ImagePath'
 import Header from '../../../layout/Header'

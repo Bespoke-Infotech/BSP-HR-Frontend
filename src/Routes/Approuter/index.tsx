@@ -63,8 +63,8 @@ const ScrollToTop = () => {
 
 const AppRouter = () => {
   useEffect(() => {
-    localStorage.setItem("email", "admin@dreamstechnologies.com");
-    localStorage.setItem("password", "123456");
+    localStorage.setItem("email", "");
+    localStorage.setItem("password", "");
   }, []);
   return (
     <div>
@@ -72,6 +72,7 @@ const AppRouter = () => {
         <BrowserRouter basename="">
           <ScrollToTop />
           <Routes>
+            
             <Route path="/" element={<Login />} />
             <Route path="/change-password" element={<ChangePassword />} />
             <Route path="/register" element={<Register />} />

@@ -1,4 +1,4 @@
-/* eslint-disable jsx-a11y/iframe-has-title */
+
 import React from 'react'
 import Header from '../../../layout/Header'
 import Sidebar from '../../../layout/Sidebar'

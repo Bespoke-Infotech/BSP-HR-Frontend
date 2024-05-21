@@ -3,6 +3,7 @@
 # dependencies
 node_modules
 /node_modules
+/.github
 /.pnp
 .pnp.js
 
@@ -13,6 +14,9 @@ node_modules
 /build
 
 .env
+.deploy.sh
+access-key.pem
+
 
 # misc
 .DS_Store
