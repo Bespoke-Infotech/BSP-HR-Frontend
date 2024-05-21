@@ -69,7 +69,7 @@ const AppRouter = () => {
   return (
     <div>
       <Provider store={store}>
-        <BrowserRouter basename="/">
+        <BrowserRouter basename="">
           <ScrollToTop />
           <Routes>
             
