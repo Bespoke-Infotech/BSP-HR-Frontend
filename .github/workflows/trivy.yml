@@ -3,8 +3,8 @@ name: trivy-scanning
 on:
   push:
     branches: [ "Staging" ]
-  pull_request:
-    branches: [ "Staging" ]
+  # pull_request:
+  #   branches: [ "Staging" ]
   # schedule:
   #   - cron: '41 16 * * 0'
 
