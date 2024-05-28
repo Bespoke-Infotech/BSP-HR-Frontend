@@ -42,7 +42,7 @@ const SettingsSidebar = () => {
                       <span>Company Settings</span>
                     </Link>
                   </li>
-                  <li
+                  {/* <li
                     className={
                       location.pathname === "/settings/localization"
                         ? "active"
@@ -52,8 +52,8 @@ const SettingsSidebar = () => {
                     <Link to="/settings/localization">
                       <i className="la la-clock-o" /> <span>Localization</span>
                     </Link>
-                  </li>
-                  <li
+                  </li> */}
+                  {/* <li
                     className={
                       location.pathname === "/settings/theme-settings"
                         ? "active"
@@ -63,7 +63,7 @@ const SettingsSidebar = () => {
                     <Link to="/settings/theme-settings">
                       <i className="la la-photo" /> <span>Theme Settings</span>
                     </Link>
-                  </li>
+                  </li> */}
                   <li
                     className={
                       location.pathname === "/settings/roles-permissions"
@@ -76,7 +76,7 @@ const SettingsSidebar = () => {
                       <span>Roles &amp; Permissions</span>
                     </Link>
                   </li>
-                  <li
+                  {/* <li
                     className={
                       location.pathname === "/settings/email-settings"
                         ? "active"
@@ -86,7 +86,7 @@ const SettingsSidebar = () => {
                     <Link to="/settings/email-settings">
                       <i className="la la-at" /> <span>Email Settings</span>
                     </Link>
-                  </li>
+                  </li> */}
                   <li
                     className={
                       location.pathname === "/settings/performance-setting"
@@ -111,7 +111,7 @@ const SettingsSidebar = () => {
                       <span>Approval Settings</span>
                     </Link>
                   </li>
-                  <li
+                  {/* <li
                     className={
                       location.pathname === "/settings/invoice-settings"
                         ? "active"
@@ -122,7 +122,7 @@ const SettingsSidebar = () => {
                       <i className="la la-pencil-square" />
                       <span>Invoice Settings</span>
                     </Link>
-                  </li>
+                  </li> */}
                   <li
                     className={
                       location.pathname === "/settings/salary-settings"
@@ -165,7 +165,7 @@ const SettingsSidebar = () => {
                       <i className="la la-cogs" /> <span>Leave Type</span>
                     </Link>
                   </li>
-                  <li
+                  {/* <li
                     className={
                       location.pathname === "/settings/toxbox-setting"
                         ? "active"
@@ -176,8 +176,8 @@ const SettingsSidebar = () => {
                       <i className="la la-comment" />{" "}
                       <span>ToxBox Settings</span>
                     </Link>
-                  </li>
-                  <li
+                  </li> */}
+                  {/* <li
                     className={
                       location.pathname === "/settings/cron-setting"
                         ? "active"
@@ -187,7 +187,7 @@ const SettingsSidebar = () => {
                     <Link to="/settings/cron-setting">
                       <i className="la la-rocket" /> <span>Cron Settings</span>
                     </Link>
-                  </li>
+                  </li> */}
                 </ul>
               </nav>
             </div>

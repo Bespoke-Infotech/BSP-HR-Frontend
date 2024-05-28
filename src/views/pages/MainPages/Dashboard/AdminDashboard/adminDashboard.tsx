@@ -51,13 +51,13 @@ const AdminDashboard = () => {
           {/* /Charts */}
           <Reports />
           <Statistics />
-          <div className="row">
+          {/* <div className="row">
             <InvoiceTable />
-            <PaymentTable />
-          </div>
+            <PaymentTable /> */}
+          {/* </div> */}
 
-          <div className="row">
-            <ClientTable />
+          <div className="">
+            {/* <ClientTable /> */}
             <RecentTable />
           </div>
         </div>
