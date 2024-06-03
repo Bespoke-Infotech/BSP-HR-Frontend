@@ -91,7 +91,7 @@ const Header = (props) => {
   };
 
   return (
-    <div className="header" style={{ right: "0px" }}>
+    <div className="header" style={{ right: "0px", background:"black" }}>
       {/* Logo */}
       <div className="header-left">
         <Link to="/admin-dashboard" className="logo">
