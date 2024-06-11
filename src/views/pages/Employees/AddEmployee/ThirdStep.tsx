@@ -56,11 +56,11 @@ const ThirdStep = (props: IStepsInterface) => {
     setSetupStep(setupStep + 1);
   };
   return (
-    <div>
+    <div className="container">
       <h4 className="modal-title mb-4">Onboard New Hire</h4>
       {/* <form> */}
-      <div className="row" style={{ width: "100%" }}>
-        <div className="col-sm-4">
+      <div className="row">
+        <div className="col-sm-6 col-md-4 mb-3">
           <div className="input-block mb-3">
             <label className="col-form-label">
               Contact on the first day
@@ -77,7 +77,7 @@ const ThirdStep = (props: IStepsInterface) => {
             />
           </div>
         </div>
-        <div className="col-sm-4">
+        <div className="col-sm-6 col-md-4 mb-3">
           <div className="input-block mb-3">
             <label className="col-form-label">
               Address
@@ -94,7 +94,7 @@ const ThirdStep = (props: IStepsInterface) => {
             />
           </div>
         </div>
-        <div className="col-sm-4">
+        <div className="col-sm-6 col-md-4 mb-3">
           <div className="input-block mb-3">
             <label className="col-form-label">
               Date
@@ -126,20 +126,17 @@ const ThirdStep = (props: IStepsInterface) => {
       </div>
 
       <div
-        className="submit-section"
-        style={{
-          display: "flex",
-          gap: "24px",
-        }}
+        className="submit-section gap-3"
+        
       >
         <button
-          className="btn btn-secondary submit-btn"
+          className="btn btn-secondary submit-btn col-sm-6 col-md-4 mb-3"
           onClick={() => setSetupStep(setupStep - 1)}
         >
           Back
         </button>
         <button
-          className="btn btn-primary submit-btn"
+          className="btn btn-primary submit-btn col-sm-6 col-md-4 mb-3"
           onClick={handleProceed}
         >
           Proceed

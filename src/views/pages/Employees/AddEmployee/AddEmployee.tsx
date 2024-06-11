@@ -33,15 +33,15 @@ const AddEmployee = (props: IAddEmployeeProps) => {
 
   return (
     <>
-      <div className="page-wrapper add-employee-wrapper">
-        <div className="add-employee-header">
-          <div className="add-employee-title">
+      <div className="page-wrapper add-employee-wrapper" style={{padding:"24px"}}>
+        <div className="add-employee-header row">
+          <div className="add-employee-title col-sm-6 col-md-4 mb-3">
             <img src="" alt="" className="back-button" />
             <h3 className="modal-title">Add New Employee</h3>
           </div>
-          <div className="add-employee-header-cta">
-            <button>Import Employee File</button>
-            <button>Import Employee from ECMS</button>
+          <div className="add-employee-header-cta row">
+            <button className="col-sm-6 col-md-4 mb-3">Import Employee File</button>
+            <button className="col-sm-12 col-md-4 mb-3">Import Employee from ECMS</button>
           </div>
         </div>
         <div className="add-eployee-body">
