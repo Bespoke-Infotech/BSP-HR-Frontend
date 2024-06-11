@@ -159,7 +159,7 @@ const FifthStep = (props: IStepsInterface) => {
                     gap: "24px",
                   }}
                 >
-                  <p className="">
+                  <p className="text-center">
                     {isDragOver
                       ? "Drop your files here"
                       : "Drag and drop your document or click the upload button "}
@@ -191,19 +191,16 @@ const FifthStep = (props: IStepsInterface) => {
       )}
 
       <div
-        className="submit-section"
-        style={{
-          display: "flex",
-          gap: "24px",
-        }}
+        className="submit-section gap-3"
+       
       >
         <button
-          className="btn btn-secondary submit-btn"
+          className="btn btn-secondary submit-btn col-sm-6 col-md-4 mb-3"
           onClick={() => setSetupStep(setupStep - 1)}
         >
           Back
         </button>
-        <button className="btn btn-primary submit-btn">
+        <button className="btn btn-primary submit-btn col-sm-6 col-md-4 mb-3">
           Proceed
         </button>
       </div>

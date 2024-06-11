@@ -38,10 +38,10 @@ const FirstStep = (props: IStepsInterface) => {
   const customStyles = {
     input: (base: any, state: any) => ({
       ...base,
-      height:"40px",
+      height: "40px",
       fontSize: "14px",
     }),
-    option: (provided, state) => ({
+    option: (provided: any, state: any) => ({
       ...provided,
       backgroundColor: state.isFocused ? "#ff9b44" : "#fff",
       color: state.isFocused ? "#fff" : "#000",
@@ -55,13 +55,13 @@ const FirstStep = (props: IStepsInterface) => {
     { value: "Male", label: "Male" },
     { value: "Female", label: "Female" },
   ];
+
   return (
-    <div>
+    <div className="container">
       <h4 className="modal-title mb-4">Personal Details</h4>
-      {/* <form> */}
-      <div className="row" style={{ width: "100%" }}>
-        <div className="col-sm-4">
-          <div className="input-block mb-3">
+      <div className="row">
+        <div className="col-sm-6 col-md-4 mb-3">
+          <div className="input-block">
             <label className="col-form-label">
               Name <span className="text-danger">*</span>
             </label>
@@ -75,8 +75,8 @@ const FirstStep = (props: IStepsInterface) => {
             />
           </div>
         </div>
-        <div className="col-sm-4">
-          <div className="input-block mb-3">
+        <div className="col-sm-6 col-md-4 mb-3">
+          <div className="input-block">
             <label className="col-form-label">
               Surname <span className="text-danger">*</span>
             </label>
@@ -90,8 +90,8 @@ const FirstStep = (props: IStepsInterface) => {
             />
           </div>
         </div>
-        <div className="col-sm-4">
-          <div className="input-block mb-3">
+        <div className="col-sm-6 col-md-4 mb-3">
+          <div className="input-block">
             <label className="col-form-label">
               Email <span className="text-danger">*</span>
             </label>
@@ -105,8 +105,8 @@ const FirstStep = (props: IStepsInterface) => {
             />
           </div>
         </div>
-        <div className="col-sm-4">
-          <div className="input-block mb-3">
+        <div className="col-sm-6 col-md-4 mb-3">
+          <div className="input-block">
             <label className="col-form-label">
               Gender <span className="text-danger">*</span>
             </label>
@@ -120,20 +120,10 @@ const FirstStep = (props: IStepsInterface) => {
               }}
               value={genderEnum?.find((c) => c.value === details?.gender)}
             />
-            {/* <select
-              className="select form-control"
-              name="gender"
-              onChange={(e: any) => handleInputChange(e)}
-              value={details?.gender}
-            >
-              <option value="">Select </option>
-              <option value="Male">Male</option>
-              <option value="Female">Female</option>
-            </select> */}
           </div>
         </div>
-        <div className="col-sm-4">
-          <div className="input-block mb-3">
+        <div className="col-sm-6 col-md-4 mb-3">
+          <div className="input-block">
             <label className="col-form-label">
               Date of Birth <span className="text-danger">*</span>
             </label>
@@ -149,21 +139,15 @@ const FirstStep = (props: IStepsInterface) => {
         </div>
       </div>
 
-      <div
-        className="submit-section"
-        style={{
-          display: "flex",
-          gap: "24px",
-        }}
-      >
+      <div className="submit-section gap-3">
         <button
-          className="btn btn-secondary submit-btn"
+          className="btn btn-secondary submit-btn col-sm-6 col-md-4 mb-3"
           onClick={() => setAddEmployee(false)}
         >
           Back
         </button>
         <button
-          className="btn btn-primary submit-btn"
+          className="btn btn-primary submit-btn col-sm-6 col-md-4 mb-3"
           onClick={handleProceed}
           disabled={
             !details?.name ||
@@ -176,7 +160,6 @@ const FirstStep = (props: IStepsInterface) => {
           Proceed
         </button>
       </div>
-      {/* </form> */}
     </div>
   );
 };
