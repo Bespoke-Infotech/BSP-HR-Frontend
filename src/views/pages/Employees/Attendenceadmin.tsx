@@ -11,21 +11,17 @@ const AttendenceAdmin = () => {
   const location = useLocation();
   const queryParams = new URLSearchParams(location.search);
 
-  console.log(location);
-
-  console.log(pageParam);
-
   useEffect(() => {
-    const pageParam: any = queryParams.get("pageParam");
+    const pageParam:any = queryParams.get("pageParam");
     setPageParam(pageParam);
-  }, [location.search]);
+  }, [location]);
 
   const updateQueryParams = (param: any) => {
     const params = new URLSearchParams();
     params.set("pageParam", param);
-
     navigate(`?${params.toString()}`);
   };
+
   return (
     <>
       <div className="page-wrapper">
