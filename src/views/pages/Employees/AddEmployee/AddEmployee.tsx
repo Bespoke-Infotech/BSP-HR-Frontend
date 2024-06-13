@@ -10,6 +10,8 @@ import SecondStep from "./SecondStep";
 import ThirdStep from "./ThirdStep";
 import ForthStep from "./ForthStep";
 import FifthStep from "./FifthStep";
+import ImportEmployeeFromECMS from "./ImportEmployeeFromECMS";
+import ImportEmployeeFromFile from "./ImportEmployeeFromFile";
 
 dayjs.extend(customParseFormat);
 const onChange = (time, timeString) => {
@@ -27,21 +29,36 @@ const AddEmployee = (props: IAddEmployeeProps) => {
   const [setupStep, setSetupStep] = useState(1);
   const [value, onChange] = useState<any>("10:00");
   const [selectedDate1, setSelectedDate1] = useState<any>(null);
+  const [importECMS, setImportECMS] = useState<any>(false);
+  const [importFile, setImportFile] = useState<any>(false);
   const handleDateChange1 = (date) => {
     setSelectedDate1(date);
   };
 
   return (
     <>
-      <div className="page-wrapper add-employee-wrapper" style={{padding:"24px"}}>
+      <div
+        className="page-wrapper add-employee-wrapper"
+        style={{ padding: "24px" }}
+      >
         <div className="add-employee-header row">
           <div className="add-employee-title col-sm-6 col-md-4 mb-3">
             <img src="" alt="" className="back-button" />
             <h3 className="modal-title">Add New Employee</h3>
           </div>
           <div className="add-employee-header-cta row">
-            <button className="col-sm-6 col-md-4 mb-3">Import Employee File</button>
-            <button className="col-sm-12 col-md-4 mb-3">Import Employee from ECMS</button>
+            <button
+              className="col-sm-6 col-md-4 mb-3"
+              onClick={() => setImportFile(true)}
+            >
+              Import Employee File
+            </button>
+            <button
+              className="col-sm-12 col-md-4 mb-3"
+              onClick={() => setImportECMS(true)}
+            >
+              Import Employee from ECMS
+            </button>
           </div>
         </div>
         <div className="add-eployee-body">
@@ -329,6 +346,8 @@ const AddEmployee = (props: IAddEmployeeProps) => {
           </div>
         </div> */}
       </div>
+      {importECMS && <ImportEmployeeFromECMS setModal={setImportECMS} />}
+      {importFile && <ImportEmployeeFromFile setModal={setImportFile} />}
     </>
   );
 };

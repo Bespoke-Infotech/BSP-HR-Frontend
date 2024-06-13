@@ -9,9 +9,10 @@ const AttendenceAdmin = () => {
   const [pageParam, setPageParam] = useState("");
   const navigate = useNavigate();
   const location = useLocation();
-  const queryParams = new URLSearchParams(location.search);
+  
 
   useEffect(() => {
+    const queryParams = new URLSearchParams(location.search);
     const pageParam:any = queryParams.get("pageParam");
     setPageParam(pageParam);
   }, [location]);
