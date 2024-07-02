@@ -1,22 +1,22 @@
-PROJECT_DIR=$PROJECT_DIR
-SERVER_USER=$SERVER_USER
-DEPLOY_SERVER=$DEPLOY_SERVER
+BUILD_DIR=$BUILD_DIR
+AWS_SSH_USER=$AWS_SSH_USER
+AWS_SSH_HOST=$AWS_SSH_HOST
 pwd
 
 # Building React output
 npm --force install
 npm run build
 
-echo "Starting Deploying to ${DEPLOY_SERVER}"
+echo "Starting Deploying to ${AWS_SSH_HOST}"
 
 
 echo "Removing old files from project dir"
-ssh -o StrictHostKeyChecking=no ${SERVER_USER}@${DEPLOY_SERVER} "pwd; rm -rf ${PROJECT_DIR}/*"
+ssh -o StrictHostKeyChecking=no ${AWS_SSH_USER}@${AWS_SSH_HOST} "pwd; rm -rf ${BUILD_DIR}/*"
 echo "Copying files to project dir"
 #scp -p22 -r * ${SERVER_USER}@${DEPLOY_SERVER}:${PROJECT_DIR}
-rsync -ar build/* ${SERVER_USER}@${DEPLOY_SERVER}:${PROJECT_DIR}
+rsync -ar build/* ${AWS_SSH_USER}@${AWS_SSH_HOST}:${BUILD_DIR}
 echo "Building and Starting App"
-ssh -o StrictHostKeyChecking=no ${SERVER_USER}@${DEPLOY_SERVER} "cd ${PROJECT_DIR}; ls -la;"
+ssh -o StrictHostKeyChecking=no ${AWS_SSH_USER}@${AWS_SSH_HOST} "cd ${BUILD_DIR}; ls -la;"
 
 echo "App started successfully"
 
