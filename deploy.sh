@@ -14,7 +14,9 @@ echo "Removing old files from project dir"
 ssh -o StrictHostKeyChecking=no ${AWS_SSH_USER}@${AWS_SSH_HOST} "pwd; rm -rf ${BUILD_DIR}/*"
 echo "Copying files to project dir"
 #scp -p22 -r * ${SERVER_USER}@${DEPLOY_SERVER}:${PROJECT_DIR}
+#scp -r ./build/* username@server_ip:/var/www/your_domain/html
 rsync -ar build/* ${AWS_SSH_USER}@${AWS_SSH_HOST}:${BUILD_DIR}
+
 echo "Building and Starting App"
 ssh -o StrictHostKeyChecking=no ${AWS_SSH_USER}@${AWS_SSH_HOST} "cd ${BUILD_DIR}; ls -la;"
 
