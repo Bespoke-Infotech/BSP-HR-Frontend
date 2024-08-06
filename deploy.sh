@@ -30,5 +30,6 @@ echo "App started successfully"
 
 #echo "Deploying to ${DEPLOY_SERVER}"
 #scp -r build/* ubuntu@${DEPLOY_SERVER}:${PROJECT_DIR}
+pm2 start npm --name "Staging-hr" -- start
 
 echo "Finished copying the build files to project dir"
