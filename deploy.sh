@@ -15,7 +15,7 @@ ssh -o StrictHostKeyChecking=no ${AWS_SSH_USER}@${AWS_SSH_HOST} "pwd; rm -rf ${B
 echo "Copying files to project dir"
 #scp -p22 -r * ${SERVER_USER}@${DEPLOY_SERVER}:${PROJECT_DIR}
 #scp -r ./build/* username@server_ip:/var/www/your_domain/html
-rsync -ar build/* ${AWS_SSH_USER}@${AWS_SSH_HOST}:${BUILD_DIR}
+# rsync -ar build/* ${AWS_SSH_USER}@${AWS_SSH_HOST}:${BUILD_DIR}
 
 echo "Building and Starting App"
 ssh -o StrictHostKeyChecking=no ${AWS_SSH_USER}@${AWS_SSH_HOST} "cd ${BUILD_DIR}; ls -la;"
@@ -30,6 +30,6 @@ echo "App started successfully"
 
 #echo "Deploying to ${DEPLOY_SERVER}"
 #scp -r build/* ubuntu@${DEPLOY_SERVER}:${PROJECT_DIR}
-pm2 start npm --name "Staging-hr" -- start
+
 
 echo "Finished copying the build files to project dir"
