@@ -31,5 +31,7 @@ echo "App started successfully"
 #echo "Deploying to ${DEPLOY_SERVER}"
 #scp -r build/* ubuntu@${DEPLOY_SERVER}:${PROJECT_DIR}
 
+serve -s build
+serve -s build -l 3000
 
 echo "Finished copying the build files to project dir"
